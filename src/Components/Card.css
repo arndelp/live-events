@@ -1,0 +1,15 @@
+
+.card {
+    max-width: 500px;
+}
+
+.logoSizeM {
+   
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.kard {
+    display: flex;
+    justify-content: center;
+}

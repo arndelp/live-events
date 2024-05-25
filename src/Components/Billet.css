@@ -1,0 +1,15 @@
+
+.billet {
+    font-size: 4em;
+    padding-top: 0;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0.3em;
+    padding-inline: 1em;
+    border-radius: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: var(--rouge);
+    color: var(--blanc);
+}

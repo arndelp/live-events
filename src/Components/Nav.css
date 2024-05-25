@@ -1,0 +1,67 @@
+
+.head {
+    display:flex;
+    background-color: var(--mauve);
+    align-items: center;
+    border-bottom: solid 2px var(--noir);
+}
+.headM {
+    display:flex;
+   
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+
+}
+.logo {
+    display: flex;
+    align-items: center;
+   
+}
+.logoM {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-top: 0;
+   
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    font-family: Katibeh, Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+  }
+
+.navbar__links {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.navbar__link {
+    display: flex;    
+    justify-content: space-between;
+    padding-inline: 2rem;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}  
+
+.Burger {
+    display: flex;
+    width: 3em;
+    background-color:--mauve;
+    box-shadow: none;
+    left: 0em;
+}
+
+.logoSize {
+    width: 10em;    
+    right: 0rem;
+    margin-bottom: 1rem;
+    
+ }
+
+
