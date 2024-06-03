@@ -3,8 +3,15 @@ import Nav from "./Components/Nav";
 import Foot from "./Components/Foot";
 import Home from "./Pages/Home";
 import Billetterie from "./Pages/Billetterie";
+import Concerts from "./Pages/Concerts";
+import Dropdown from "./Components/Dropdown";
+import Contact from "./Components/Contact";
+
+
+
 
 import './App.css';
+
 
 
 function App() {
@@ -15,10 +22,22 @@ function App() {
         
         <Routes>
           <Route path="/" element={ 
-            <Home /> }>           
+            <Home />         }>           
           </Route>
-          <Route path="/Billetterie" element={
+          <Route path="/billetterie" element={
             <Billetterie />  }>
+          </Route>
+          <Route path="/concerts" element={
+            <Concerts />     }>
+          </Route>
+          <Route path="/Programmation" element={
+            <div>
+              <Dropdown />
+                       
+            </div>  }>
+          </Route>
+          <Route path="/Contact" element={
+            <Contact />     }>
           </Route>
           
         </Routes>

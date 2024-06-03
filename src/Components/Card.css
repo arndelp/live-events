@@ -1,15 +1,57 @@
 
 .card {
+    display:flex;
     max-width: 500px;
+    padding-inline: 0rem;
+    margin-top: 2rem;
+    border: none;
+  
+ 
+    
+    
+    
+   
 }
 
 .logoSizeM {
+    display:flex;
    
-    align-items: center;
+    align-items: left;
     margin-bottom: 0px;
 }
 
 .kard {
     display: flex;
     justify-content: center;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    
+}
+
+p {
+    font-size: 0.5em;
+}
+
+.imgf {
+    
+   
+    display: flex;
+    
+}
+
+.card-text {
+    
+    font-family: katibeh;
+    
+    font-size: 0.9em
+   
+    
+}
+.card-body {
+    line-height: 0.5em;
+}
+
+.card-title {
+    font-size: 1em;
+    color: var(--rouge);
 }

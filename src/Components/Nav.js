@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Nav.css";
 import {useState} from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -18,7 +19,9 @@ function Nav() {
             <nav className="head row ">
                 <div className="logo col-2 d-none d-lg-block">
                     <div >
-                        <img src='../assets/logo.svg' alt="logo" className="logoSize" />
+                        <Link to="/">
+                            <img src='../assets/logo.svg' alt="logo" className="logoSize" />
+                        </Link>
                     </div>   
                 </div>
 
@@ -26,18 +29,28 @@ function Nav() {
                 <div className="d-none d-lg-block col-8"    >
                     <ul className="navbar__links ">
                     
+                        
                         <li className="navbar__item">
-                            <a href='/' className="navbar__link nbrArticle">Programmation</a>
+                            <Link to="/Programmation">
+                                <a href='/' className="navbar__link nbrArticle">Programmation</a>
+                            </Link>
                         </li>
                         <li className="navbar__item">
-                            <a href='/' className="navbar__link nbrArticle">Billetterie</a>
+                            <Link to="/Billetterie">
+                                <a href='/'  className="navbar__link nbrArticle">Billetterie</a>
+                             </Link>
                         </li>   
                         <li className="navbar__item">
                             <a href='/' className="navbar__link nbrArticle">Informations</a>
                         </li>        
                         <li className="navbar__item">
                             <a href='/' className="navbar__link nbrArticle">Plan</a>
-                        </li>             
+                        </li>    
+                        <li className="navbar__item">
+                            <Link to="/Contact">
+                                <a href='/'  className="navbar__link nbrArticle">Contact</a>
+                             </Link>
+                        </li>            
                     </ul>
                 </div>
                          
@@ -61,18 +74,28 @@ function Nav() {
                     <div class={`row d-lg-none ${showLinks ? "d-block" : "d-none"} `}>   
                         
                         <ul className=" d-block d-lg-none">                   
-                            <li className="navbar__item">
-                                <a href='/' className="navbar__link">Programmation</a>
-                            </li>
-                            <li className="navbar__item">
-                                <a href='/' className="navbar__link">Billetterie</a>
-                            </li>   
-                            <li className="navbar__item">
-                                <a href='/' className="navbar__link">Informations</a>
-                            </li>   
-                            <li className="navbar__item">
-                                <a href='/' className="navbar__link">Plan</a>
-                            </li>                 
+                        
+                        <li className="navbar__item">
+                            <Link to="/Programmation">
+                                <a href='/' className="navbar__link nbrArticle">Programmation</a>
+                            </Link>
+                        </li>
+                        <li className="navbar__item">
+                            <Link to="/Billetterie">
+                                <a href='/'  className="navbar__link nbrArticle">Billetterie</a>
+                             </Link>
+                        </li>   
+                        <li className="navbar__item">
+                            <a href='/' className="navbar__link nbrArticle">Informations</a>
+                        </li>        
+                        <li className="navbar__item">
+                            <a href='/' className="navbar__link nbrArticle">Plan</a>
+                        </li>    
+                        <li className="navbar__item">
+                            <Link to="/Contact">
+                                <a href='/'  className="navbar__link nbrArticle">Contact</a>
+                             </Link>
+                        </li>                    
                         </ul>
 
                     </div>

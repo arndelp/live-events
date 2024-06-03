@@ -4,19 +4,13 @@ import "./Billetterie.css"
 
 
 function Billetterie() {
-
- 
     
 
-    return ( 
-       
+    return (       
                 
-                <Billet /> 
-               
+        <Billet />     
       
-
-      
-      )
+    )
 
 }
 
