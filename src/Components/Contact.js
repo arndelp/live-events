@@ -1,118 +1,73 @@
-import React, { useState } from "react";
+import "./Contact.css";
+import { useState } from "react";
 
-const FormWithValidation = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-  });
 
-  const [formErrors, setFormErrors] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-  });
+function MyForm() {
+  const [inputs, setInputs] = useState({});
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
+  const [textarea, setTextarea] = useState(
+    
+  );
 
-    // Update form data
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-
-    // Perform validation
-    if (name === "firstName" && value === "") {
-      setFormErrors({
-        ...formErrors,
-        firstName: "First name is required.",
-      });
-    } else if (name === "lastName" && value === "") {
-      setFormErrors({
-        ...formErrors,
-        lastName: "Last name is required.",
-      });
-    } else if (name === "email" && !/^\S+@\S+\.\S+$/.test(value)) {
-      setFormErrors({
-        ...formErrors,
-        email: "Invalid email address.",
-      });
-    } else {
-      // Clear validation errors if input is valid
-      setFormErrors({
-        ...formErrors,
-        [name]: "",
-      });
-    }
-  };
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // Perform validation before submitting the form
-    const validationErrors = Object.keys(formData).reduce((errors, name) => {
-      if (formData[name] === "") {
-        errors[name] = `${
-          name.charAt(0).toUpperCase() + name.slice(1)
-        } is required.`;
-      } else if (name === "email" && !/^\S+@\S+\.\S+$/.test(formData[name])) {
-        errors[name] = "Invalid email address.";
-      }
-      return errors;
-    }, {});
-
-    // Update form errors
-    setFormErrors(validationErrors);
-
-    // Check if there are any validation errors
-    if (Object.values(validationErrors).every((error) => error === "")) {
-      // Perform custom business logic or submit the form
-      console.log("Form submitted successfully!");
-      console.log("Form Data:", formData);
-    } else {
-      console.log("Form validation failed. Please check the errors.");
-    }
-  };
+    alert(inputs);
+  }
+  
 
   return (
-    <form>
-      <label>
-        First Name:
-        <input
-          type="text"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleInputChange}
-        />
-        <span className="error">{formErrors.firstName}</span>
-      </label>
+     <>
+      <h1 className="contacth1">Contactez-nous</h1>
+     
+   
+    <div className="contact">    
+        
+      <form onSubmit={handleSubmit}>
 
-      <label>
-        Last Name:
-        <input
-          type="text"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleInputChange}
-        />
-        <span className="error">{formErrors.lastName}</span>
-      </label>
+        <label class="row field">Nom:
+          <input 
+            type="text" 
+            name="username" 
+            value={inputs.username || ""} 
+            onChange={handleChange}
+          />
+          </label>
 
-      <label>
-        Email:
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-        />
-        <span className="error">{formErrors.email}</span>
-      </label>
+          <label class="row field">Prénom:
+          <input 
+            type="text" 
+            name="firstname" 
+            value={inputs.firstname || ""} 
+            onChange={handleChange}
+          />             
+          </label>
 
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
-  );
-};
+          <label class="row field">e-mail:
+          <input 
+            type="email" 
+            name="email" 
+            value={inputs.email || ""} 
+            onChange={handleChange}
+          />             
+          </label>
+      
+        
+          <label class="row field">message:
+          <textarea value={textarea} onChange={handleChange} />   
+          </label>
+          
 
-export default FormWithValidation;
+          <input type="submit" />
+        </form>
+      </div>
+      </>
+    )
+  }
+
+export default MyForm;

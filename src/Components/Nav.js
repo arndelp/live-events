@@ -15,7 +15,7 @@ function Nav() {
     }
 
     return (   
-        
+       ////////////////////////Format Desktop///////////////////////////////////////////////////////
             <nav className="head row ">
                 <div className="logo col-2 d-none d-lg-block">
                     <div >
@@ -32,32 +32,36 @@ function Nav() {
                         
                         <li className="navbar__item">
                             <Link to="/Programmation">
-                                <a href='/' className="navbar__link nbrArticle">Programmation</a>
+                                <h3>Programmation</h3>
                             </Link>
                         </li>
                         <li className="navbar__item">
                             <Link to="/Billetterie">
-                                <a href='/'  className="navbar__link nbrArticle">Billetterie</a>
+                                <h3>Billetterie</h3>
                              </Link>
                         </li>   
                         <li className="navbar__item">
-                            <a href='/' className="navbar__link nbrArticle">Informations</a>
+                            <Link to="/">
+                            <h3>Informations</h3>
+                            </Link> 
                         </li>        
                         <li className="navbar__item">
-                            <a href='/' className="navbar__link nbrArticle">Plan</a>
+                        <Link to="/Plan">
+                            <h3>Plan</h3>
+                            </Link>
                         </li>    
                         <li className="navbar__item">
                             <Link to="/Contact">
-                                <a href='/'  className="navbar__link nbrArticle">Contact</a>
+                                <h3>Contact</h3>
                              </Link>
                         </li>            
                     </ul>
                 </div>
-                         
-                <div class="row headM">   
-               
 
-                    <div className=" col-2 d-block d-lg-none  ">
+{/* ////////////////////////Format mobile/////////////////////////////////////*/}
+
+                <div class="row headM">   
+                     <div className=" col-2 d-block d-lg-none  ">
                         <div class="btn-group" data-toggle="buttons-checkbox">
                         <button type="button" class="Burger btn btn-default " onClick={handleShowLinks}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#000000" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
@@ -67,7 +71,9 @@ function Nav() {
 
                     <div className="logoM col-2 offset-5 d-block d-lg-none">
                     <div >
-                        <img src='../assets/logo.svg' alt="logo" className="logoSizeM" />
+                        <Link to="/">
+                            <img src='../assets/logo.svg' alt="logo" className="logoSizeM" />
+                        </Link>
                     </div>   
                 </div>
 

@@ -6,7 +6,7 @@ import { getImageUrl } from "../getImageUrl.js";
 export default function ListD1S1() {
 
   const day1sch1 = data.filter(data =>
-    data.day === "10/07/2027" && data.schedule === "18:00 - 19:00");
+    data.day === "09/07/2027" && data.schedule === "18:00 - 19:00");
   
 
   const listDay1Sch1 = day1sch1.map(data =>

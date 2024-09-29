@@ -3,9 +3,12 @@ import Nav from "./Components/Nav";
 import Foot from "./Components/Foot";
 import Home from "./Pages/Home";
 import Billetterie from "./Pages/Billetterie";
-import Concerts from "./Pages/Concerts";
-import Dropdown from "./Components/Dropdown";
+import DisplayData from "./Components/DisplayData"
 import Contact from "./Components/Contact";
+import DetailDuConcert from "./Pages/DetailDuConcert";
+import Plan from "./Pages/Plan";
+
+
 
 
 
@@ -24,19 +27,22 @@ function App() {
           <Route path="/" element={ 
             <Home />         }>           
           </Route>
+          <Route path="/Plan" element={ 
+            <Plan />         }>           
+          </Route>
           <Route path="/billetterie" element={
             <Billetterie />  }>
           </Route>
-          <Route path="/concerts" element={
-            <Concerts />     }>
-          </Route>
-          <Route path="/Programmation" element={
-            <div>
-              <Dropdown />
+          <Route path="/Programmation"  element={            
+            <DisplayData /> }  >    
                        
-            </div>  }>
-          </Route>
+          </Route>    
+          <Route path="/Programmation/Details/:id" element={            
+            <DetailDuConcert /> }>              
+          </Route>  
+          
           <Route path="/Contact" element={
+            
             <Contact />     }>
           </Route>
           

@@ -1,6 +1,6 @@
 
 .billet {
-    font-size: 4em;
+    font-size: 3em;
     padding-top: 0;
     display: flexbox;
     justify-content: center;
@@ -12,4 +12,5 @@
     margin-bottom: 1em;
     background-color: var(--rouge);
     color: var(--blanc);
+    
 }

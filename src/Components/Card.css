@@ -1,57 +1,49 @@
 
 .card {
     display:flex;
-    max-width: 500px;
-    padding-inline: 0rem;
+    max-width: 600px;
+    padding-inline: 0.5rem;
     margin-top: 2rem;
     border: none;
-  
- 
+    font-family: katibeh, Arial, Helvetica, sans-serif;
+    font-size:1em;
     
-    
-    
-   
-}
+} 
+
 
 .logoSizeM {
     display:flex;
    
-    align-items: left;
+    align-items: center;
     margin-bottom: 0px;
 }
 
 .kard {
     display: flex;
     justify-content: center;
-    padding-left: 2em;
+    padding-left: em;
     padding-bottom: 2em;
     
 }
 
-p {
-    font-size: 0.5em;
-}
-
-.imgf {
-    
-   
-    display: flex;
-    
-}
 
 .card-text {
     
-    font-family: katibeh;
-    
-    font-size: 0.9em
+    font-family: katibeh;    
+    font-size:  1.3em
    
     
 }
 .card-body {
-    line-height: 0.5em;
+   text-align: center;
+    line-height: 0.4em;
+    
+   
 }
 
 .card-title {
-    font-size: 1em;
+    font-size: 1.5em;
     color: var(--rouge);
+    text-align: center;
+    justify-content: center;
 }
