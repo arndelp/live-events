@@ -94,8 +94,10 @@ function Nav() {
                         <li className="navbar__item">
                             <a href='/' className="navbar__link nbrArticle">Informations</a>
                         </li>        
-                        <li className="navbar__item">
-                            <a href='/' className="navbar__link nbrArticle">Plan</a>
+                        <li className="/Plan">
+                            <Link to="/Plan">
+                                <a href='/' className="navbar__link nbrArticle">Plan</a>
+                                </Link>
                         </li>    
                         <li className="navbar__item">
                             <Link to="/Contact">
