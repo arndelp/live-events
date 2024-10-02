@@ -22,7 +22,7 @@ function MyForm() {
   
 
   return (
-     <>
+     <div className="contenu">
       <h1 className="contacth1">Contactez-nous</h1>
      
    
@@ -66,7 +66,7 @@ function MyForm() {
           <input type="submit" />
         </form>
       </div>
-      </>
+      </div>
     )
   }
 

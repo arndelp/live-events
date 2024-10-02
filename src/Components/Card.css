@@ -29,8 +29,8 @@
 
 .card-text {
     
-    font-family: katibeh;    
-    font-size:  1.3em
+    font-family: katibeh,Arial, Helvetica, sans-serif;    
+    font-size:  1.1em
    
     
 }
@@ -42,8 +42,8 @@
 }
 
 .card-title {
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: var(--rouge);
     text-align: center;
-    justify-content: center;
+    padding-top: 0;
 }

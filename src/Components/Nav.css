@@ -4,12 +4,13 @@
     background-color: var(--mauve);
     align-items: center;
     border-bottom: solid 2px var(--noir);
+    padding-top: 0em;
 }
 .headM {
     display:flex;
    
-    padding-bottom: 0.5em;
-    padding-top: 0.5em;
+    padding-bottom: 0em;
+    padding-top: 0em;
 
 }
 .logo {
@@ -17,25 +18,19 @@
     align-items: center;
    
 }
-.logoM {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin-top: 0;
-   
-}
 
 ul {
     list-style: none;
-    padding: 0;
     font-family: Katibeh, Arial, Helvetica, sans-serif;
     font-size: 1.5em;
+    
   }
 
 .navbar__links {    
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0.5em;
     
 }
 
@@ -47,22 +42,28 @@ ul {
     align-items: center;
     text-decoration: none;
     color: black;
+    
 }  
+
+.navbar__link:hover {
+    color: aqua;
+}
 
 .Burger {
     display: flex;
-    width: 3em;
-    background-color:--mauve;
-    box-shadow: none;
-    left: 0em;
+    height: 2em;
+    background-color:--mauve;   
+    left: 0.5em;
+    margin-top: 0.9em;
 }
 
 .logoSize {
     width: 10em;    
     right: 0rem;
-    margin-bottom: 1rem;
-    
+    margin-bottom: 1rem;    
  }
+
+
 
  a {
     text-decoration: none;
@@ -74,4 +75,22 @@ ul {
     color: var(--noir);
  }
 
+ .headLogoM {
+    font-family: Katibeh, Arial, Helvetica, sans-serif;
+    font-size: 0.5em;
+   text-align: center;
+   padding-top: 0.5em;
+   padding-left: 0.3em;   
+    
+ }
+
+ h3:hover {
+    color: aqua;
+ }
+
+ .btn {
+    max-width: 4.2em;
+    border-style: none;
+ }
+ 
 

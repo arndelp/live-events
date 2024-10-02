@@ -40,9 +40,6 @@ export default function ListD1S1() {
        
   );
 
-
-
-
 return ( 
 <div className='row  g-0 kard'>
   <div className="card  pb-0">   

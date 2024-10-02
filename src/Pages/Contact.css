@@ -2,9 +2,8 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    background-color: var(--gris);   
-    padding-top: 2em;
-    padding-bottom: 5em;
+    background-color: var(--gris); 
+    padding-bottom: 2em;       
 }
 
 .field {
@@ -19,5 +18,11 @@
     margin-bottom: 0;
     padding-top: 0.5em;
     font-family: Katibeh;
-    font-size: 5em;
+    font-size: 5em;  
 }
+
+.contenu {
+    block-size: 100vh;
+    background-color: var(--gris); 
+}
+

@@ -1,4 +1,4 @@
-import Card1 from "../Components/Card1"
+import ProgActuelle from "../Components/ProgActuelle.js"
 import Billet from "../Components/Billet"
 import MapMini from "../Components/MapMini.tsx"
 import { Link } from "react-router-dom";
@@ -9,9 +9,9 @@ function Home() {
     return ( 
         <>
         <div className="row background">
-            <p id="title">Actuellement</p>
-            <h1>NATION SOUND</h1>
-                <Card1 />                
+           
+            <h1 className="title" >NATION SOUND</h1>
+                <ProgActuelle />                
                 <Billet /> 
                 
                 <Link to="/Plan" >

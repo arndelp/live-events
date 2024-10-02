@@ -25,3 +25,7 @@
 .backcolorfoot {
     background-color: var(--mauve);
 }
+
+svg:hover {
+    background-color:aqua;
+}
