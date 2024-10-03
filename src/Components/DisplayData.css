@@ -1,4 +1,15 @@
 .programmationh1 {
     font-family: katibeh;
-    font-size: 5em;
+    font-size: 3.5em;
+}
+
+.dropdown {
+    text-align: left;
+    padding-right: 9em;
+    padding-top: 1em;
+  
+}
+
+.itemList {
+    padding-right: 100em;
 }

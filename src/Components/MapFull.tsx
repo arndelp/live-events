@@ -61,12 +61,7 @@ const MapFull = () => {
           console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
         }    
         >
-                      {/*//////////////// Affichage des icones sur la carte*/}
-
-    
-
-
-
+                      
 
       </Map>
     </APIProvider>

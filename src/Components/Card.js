@@ -1,5 +1,4 @@
 import React from "react";
-import { getImageUrl } from "./getImageUrl.js";
 import "./Card.css";
 import Details from "./Details.js"
 
@@ -9,11 +8,18 @@ const Card = ({ item }) => {
   return (
     
     <div className="row  g-0 kard">
-        <div  className="card pb-0" >
+        <div  className="cardProg pb-0" >
             {item.map((Val) => {
-                return (         
+                return (   
+                        
                   
-                  <Details  name= {Val.name} location ={Val.location} day ={Val.day} schedule = {Val.schedule} imageId= {Val.imageId }/>
+                  <Details  name= {Val.name} 
+                            location ={Val.location} 
+                            day ={Val.day} 
+                            schedule = {Val.schedule} 
+                            imageId= {Val.imageId }/>
+                  
+                  
               
             );
           })}

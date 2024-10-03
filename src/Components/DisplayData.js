@@ -53,8 +53,8 @@ export default function DisplayData() {
              
                 <h1 className="col-12 text-center my-3 fw-bold programmationh1">Programmation</h1>
 
-                
-                <Buttons
+            <div className="dropdown">
+                <Buttons 
                 
             filterItemDay={filterItemDay} 
             filterItemLoc={filterItemLoc}
@@ -66,10 +66,13 @@ export default function DisplayData() {
             schItems={schItems}
             
           />
-                <Card item={item}  /> 
-              </div>
             </div>
-          
+            
+                <Card item={item}  /> 
+                
+              </div>
+            
+          </div>
       
     
 );
