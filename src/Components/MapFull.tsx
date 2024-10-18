@@ -1,12 +1,6 @@
 
 import "../style/MapFull.css";
 import {APIProvider, Map, MapCameraChangedEvent} from '@vis.gl/react-google-maps';
-import DisplayBarMarkers from "./IconsMap/DisplayBarMarkers.tsx";
-import DisplayToiletsMarkers from "./IconsMap/DisplayToiletsMarkers.tsx";
-import DisplayScenesMarkers from "./IconsMap/DisplayScenesMarkers.tsx";
-import DisplayExitsMarkers from "./IconsMap/DisplayExitsMarkers.tsx";
-import DisplayParkingsMarkers from "./IconsMap/DisplayParkingsMarkers.tsx";
-import DisplayCampingMarkers from "./IconsMap/DisplayCampingMarkers.tsx";
 import Markers from "./Markers.tsx";
 
 
@@ -32,22 +26,7 @@ const MapFull = () => {
     <div class="checkboxes">
       <div class= "checkbox">
         <Markers  />
-      </div>
-      {/*<div class= "checkbox">
-        <DisplayToiletsMarkers />
-      </div>
-      <div class= "checkbox">
-        <DisplayScenesMarkers />
-      </div>
-      <div class= "checkbox">
-        <DisplayExitsMarkers />
-      </div>
-      <div class= "checkbox">
-        <DisplayParkingsMarkers />
-      </div>
-      <div class= "checkbox">
-        <DisplayCampingMarkers />
-      </div> */}
+      </div>    
     </div>
 
 {/*Ensuite la carte, avec une taille de 100% de largeur de l'écran et 100% de hauteur de l'écran */}
