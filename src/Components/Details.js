@@ -1,9 +1,6 @@
-import { getImageUrl } from "./getImageUrl.js";
-
-
-const Details= ({name, location, schedule, day, imageId}) => {
-    
-
+import { getImageUrl } from "./getImageUrl2.js";
+const Details= ({name, location, schedule, day, imageId}) => {    
+{/*Affichage des données dans de Card */}
     return (       
                 
         <div className="row g-0 pb-2">

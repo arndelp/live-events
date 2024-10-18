@@ -2,10 +2,10 @@
 .card {    
     max-width: 600px;
     padding-inline: 0.5rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
     border: none;
     font-family: katibeh, Arial, Helvetica, sans-serif;
-    font-size:0.95em;
+    font-size:0.9em;
     
    
     
@@ -23,9 +23,7 @@
     margin: 1em 0em 1em 7em;
 }
 
-.card-image {
-    padding-top: 0.5em;
-}
+
 
 
 .logoSizeM {

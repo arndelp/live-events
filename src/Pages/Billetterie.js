@@ -4,7 +4,7 @@ import BilletD from "../Components/Pass/BilletD"
 import Pass2joursVS from "../Components/Pass/Pass2joursVS"
 import Pass2joursSD from"../Components/Pass/Pass2joursSD"
 import Pass3joursVSD from "../Components/Pass/Pass3joursVSD"
-import "./Billetterie.css"
+import "../style/Billetterie.css"
 
 
 function Billetterie() {

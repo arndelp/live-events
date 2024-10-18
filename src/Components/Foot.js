@@ -1,5 +1,5 @@
 
-import "./Foot.css";
+import "../style/Foot.css";
 
 
 function Foot() {

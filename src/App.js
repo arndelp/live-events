@@ -1,3 +1,4 @@
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav";
 import Foot from "./Components/Foot";
@@ -9,11 +10,6 @@ import Informations from "./Pages/Informations";
 import Plan from "./Pages/Plan";
 
 
-
-
-
-
-import './App.css';
 
 
 
@@ -38,7 +34,8 @@ function App() {
           </Route>
                 
           <Route path="/Plan" element={ 
-            <Plan />         }>           
+            <Plan />         }>    
+                 
           </Route>                   
           <Route path="/Contact" element={            
             <Contact />     }>

@@ -1,4 +1,4 @@
-import "./MapFull.css";
+import "../style/MapFull.css";
 import {Map, APIProvider} from '@vis.gl/react-google-maps';
 
 

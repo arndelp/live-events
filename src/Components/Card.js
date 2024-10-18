@@ -1,8 +1,8 @@
 import React from "react";
-import "./Card.css";
+import "../style/Card.css";
 import Details from "./Details.js"
 
- 
+{/*Utilisation de la méthode map() pour transformer les donnée de {item} en tableau [Val] */}
 const Card = ({ item }) => {            
           
   return (
@@ -12,14 +12,12 @@ const Card = ({ item }) => {
             {item.map((Val) => {
                 return (   
                         
-                  
+   /*Appel du composant Details avec ses props */               
                   <Details  name= {Val.name} 
                             location ={Val.location} 
                             day ={Val.day} 
                             schedule = {Val.schedule} 
-                            imageId= {Val.imageId }/>
-                  
-                  
+                            imageId= {Val.imageId }/>                 
               
             );
           })}

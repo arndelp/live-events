@@ -1,34 +1,51 @@
+import { useState, useEffect } from "react";
+import getImageUrl from "../getImageUrl"
+import { Link } from "react-router-dom";
+import "../../style/Card.css";
+import { all } from "axios";
 
-import  data  from '../../data.js'
-import { getImageUrl } from "../getImageUrl.js";
 
 
 export default function ListD1S1() {
 
-  const day1sch1 = data.filter(data =>
-    data.day === "09/07/2027" && data.schedule === "18:00 - 19:00");
-  
+  {/*concerts est initialement vide*/}
+  const [concerts, setConcerts] = useState([])
+{/*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/}
+  useEffect(()=>{
+    fetch('dataConcerts.json')
+    .then(response=>response.json())
+    .then(data=>setConcerts(data.concerts))
+    .catch(error => console.log(error))
+  },[]);
 
-  const listDay1Sch1 = day1sch1.map(data =>
-    <li key={data.id} >
+
+  {/*on met dans Val les concerts ayant la première date et la première horaire */}
+  const day1sch1 = concerts.filter(Val =>
+    Val.day === "09/07/2027" && Val.schedule === "18:00 - 19:00");  
+console.log(day1sch1)
+
+{/*on liste le contenu de Val */}
+  const listDay1Sch1 = day1sch1.map(Val =>
+    <li key={Val.id} >
       
       <div className="card mb-3  " >
         <div className="row g-0">
-        <div className="col-5">
+          <div className="col-5">
        
-          <img
-            src={getImageUrl(data)}
-            alt={data.name}  
-            className="img-fluid rounded"   
-          />
-        </div>
-      
-        <div className="col-7">
-          <div className="card-body ">            
-              <h5 className="card-title">{data.name}</h5>
-              <p className="card-text">{data.location}</p>
-              <p className="card-text">{data.day}</p>
-              <p className="card-text">{data.schedule}</p>
+            {/*Appelle de la fonction gerImageUrl pour récupérer l'image */}
+            <img
+              src={getImageUrl(Val)}     
+              alt={Val.name}  
+              className="img-fluid rounded"   
+            />
+          </div>
+        
+          <div className="col-7">
+            <div className="card-body ">            
+              <h5 className="card-title">{Val.name}</h5>
+              <p className="card-text">{Val.location}</p>
+              <p className="card-text">{Val.day}</p>
+              <p className="card-text">{Val.schedule}</p>
             </div>
           </div>
         </div>
@@ -40,13 +57,21 @@ export default function ListD1S1() {
        
   );
 
+
+ {/*Affichage de la liste + lien vers Programmation */}
+
 return ( 
-<div className='row  g-0 kard'>
-  <div className="card  pb-0">   
-    <ul>{listDay1Sch1}</ul>
+
+ 
+<Link to="/Programmation">
+  <div className='row  g-0 kard'>
+    <div className="card  pb-0">   
+      <ul>{listDay1Sch1}</ul>
+    </div>
   </div>
- </div>
- )
+</Link>
+)
+
    
 
 

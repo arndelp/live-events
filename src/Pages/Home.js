@@ -1,8 +1,8 @@
-import ProgActuelle from "../Components/ProgActuelle.js"
+import FilterD1S1 from "../Components/Filters/FilterD1S1.js"
 import Billet from "../Components/Billet"
 import MapMini from "../Components/MapMini.tsx"
 import { Link } from "react-router-dom";
-import "./Home.css"
+import "../style/Home.css"
 
 function Home() {
 
@@ -11,7 +11,7 @@ function Home() {
         <div className="row background">
            
             <h1 className="title" >NATION SOUND</h1>
-                <ProgActuelle />                
+                <FilterD1S1 />
                 <Billet /> 
                 
                 <Link to="/Plan" >
