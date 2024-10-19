@@ -5,16 +5,16 @@
             "location": {"lat": 48.6480495744828,"lng":  1.8157557433476355 },
             "title": "Bar scène 1",
             "image": "../assets/bars.png",
-            "width": "25rem",
-            "height": "25rem"
+            "width": "30 em",
+            "height": "30 em"
         },
         {
             "key": "Bar 2",
             "location": { "lat": 48.645888305467395,"lng":  1.812579226760014  },
             "title": "Bar scène 2",
             "image": "../assets/bars.png",
-            "width": "25rem",
-            "height": "25rem"
+            "width": "30 em",
+            "height": "30 em"
         }
     ],
     "parkings": [
@@ -23,16 +23,16 @@
             "location": { "lat": 48.648460697389204,"lng":  1.817590374250487  },
             "title": "Parking 1",
             "image": "../assets/parking.png",
-            "width": "25rem",
-            "height": "25rem"
+            "width": "25 em",
+            "height": "25 em"
         },
         {
             "key": "Parking 2",
             "location": { "lat": 48.64546934730316,"lng":  1.8100158162539175  },
             "title": "Parking 2",
             "image": "../assets/parking.png",
-            "width": "25rem",
-            "height": "25rem"
+            "width": "25 em",
+            "height": "25 em"
         }
     ],
     "scenes": [
@@ -41,16 +41,16 @@
             "location": { "lat": 48.64939007376746,"lng":  1.815133972632164  },
             "title": "Scène 1",
             "image": "../assets/scene.png",
-            "width": "35rem",
-            "height": "35rem"
+            "width": "40 em",
+            "height": "40 em"
         },
         {
             "key": "Scène 2",
             "location": { "lat": 48.64676680373308,"lng":  1.8116805604899497  },
             "title": "Scène 2",
             "image": "../assets/scene.png",
-             "width": "35rem",
-            "height": "35rem"
+             "width": "40 em",
+            "height": "40 em"
         }
     ],
     "exits": [
@@ -59,24 +59,24 @@
             "location": { "lat": 48.647657122855406,"lng":  1.815491457154483  },
             "title": "Entrée 1",
             "image": "../assets/entrer.png",
-            "width": "25rem",
-            "height": "25rem"
+            "width": "25 em",
+            "height": "25 em"
         },
         {
             "key": "Entrée 2",
             "location": { "lat": 48.646402458672014,"lng":  1.8140859796791988  },
             "title": "Entrée 2",
             "image": "../assets/entrer.png",
-            "width": "25rem",
-            "height": "25rem"
+            "width": "25 em",
+            "height": "25 em"
         },
         {
             "key": "Entrée 3",
             "location": { "lat": 48.6474870007277,"lng":  1.814053793172131  },
             "title": "Entrée 3",
             "image": "../assets/entrer.png",
-            "width": "25rem",
-            "height": "25rem"
+            "width": "25 em",
+            "height": "25 em"
         }
     ],
     "toilets": [
@@ -85,16 +85,16 @@
             "location": { "lat": 48.647333645559215,"lng": 1.8149296229995675  },
             "title": "Toilettes scène 1",
             "image": "../assets/toilettes.png",
-            "width": "25rem",
-            "height": "25rem"
+            "width": "25 em",
+            "height": "25 em"
         },
         {
             "key": "Toilettes 2",
             "location": { "lat": 48.64709761471343,"lng":  1.8145376530262565  },
             "title": "Toilettes scène 2",
             "image": "../assets/toilettes.png",
-            "width": "25rem",
-            "height": "25rem"
+            "width": "25 em",
+            "height": "25 em"
         }
     ],
     "camping": [
@@ -103,8 +103,8 @@
             "location": { "lat": 48.64549770213722,"lng":  1.807601828007549  },
             "title": "Camping",
             "image": "../assets/camping.png",
-            "width": "30rem",
-            "height": "30rem"
+            "width": "60 em",
+            "height": "60 em"
 
         }
     ]

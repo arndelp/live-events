@@ -1,8 +1,9 @@
 import FilterD1S1 from "../Components/Filters/FilterD1S1.js"
 import Billet from "../Components/Billet"
-import MapMini from "../Components/MapMini.tsx"
+import GoogleMap from "../Components/GoogleMap.tsx"
 import { Link } from "react-router-dom";
-import "../style/Home.css"
+import "../style/Home.css";
+import "../style/Map.css";
 
 function Home() {
 
@@ -15,8 +16,8 @@ function Home() {
                 <Billet /> 
                 
                 <Link to="/Plan" >
-                    <div className="row Map">
-                        <MapMini />
+                    <div className="offset-1 col-10 mapMini">
+                        <GoogleMap />
                     </div>
                 </Link>
 

@@ -11,7 +11,7 @@ import "../style/Markers.css";
 
 
 const Markers = () => {
-
+{/* La constante bars est vide à l'initiale */}
   const [bars, setBars] = useState([])
 {/*envoi une requête et récupération des données dans 'dataMap.json' puis les stockent dans bars avec setBars*/}
     useEffect(()=>{

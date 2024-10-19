@@ -1,11 +1,19 @@
-import MapFull from "../Components/MapFull.tsx"
+import GoogleMap from "../Components/GoogleMap.tsx";
+import "../style/Map.css";
+import "../style/Markers.css";
 
 
-function Plan ()  {
+
+const Plan = () => {
     return (
-    <>
-    <MapFull />
-    </>
+    
+    <div class="row">
+        <div>
+         <GoogleMap />
+        </div>
+    </div>
+    
+    
 );
 }
 export default Plan
