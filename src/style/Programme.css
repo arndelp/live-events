@@ -1,3 +1,18 @@
+.programmationh1 {
+    font-family: katibeh;
+    font-size: 3.5em;
+}
+
+.dropdown {
+    text-align: left;
+    padding-right: 9em;
+    padding-top: 1em;  
+}
+
+.itemList {
+    padding-right: 100em;
+}
+
 
 .card {    
     max-width: 600px;
@@ -6,8 +21,6 @@
     border: none;
     font-family: katibeh, Arial, Helvetica, sans-serif;
     font-size:0.9em;
-    
-   
     
     
 } 
@@ -34,14 +47,17 @@
 }
 
 .kard {
+    
     display: flex;  
     justify-content: center;  
-    padding-bottom: 2em;
-    
-   
-    
+    padding-bottom: 2em;   
 }
-
+.kardProg {
+    min-height: 100vh;
+    display: flex;  
+    justify-content: center;  
+    padding-bottom: 2em;   
+}
 
 .card-text {
     
@@ -63,3 +79,9 @@
     text-align: center;
     
 }
+
+.Drop {
+    margin-bottom: 0.5em;
+     
+     
+ }

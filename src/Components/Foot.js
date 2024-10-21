@@ -2,6 +2,9 @@
 import "../style/Foot.css";
 
 
+
+{/*Fonction permettant l'affichage des liens vers les réseaux sociaux dans le Footer */}
+
 function Foot() {
 
  

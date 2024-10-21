@@ -4,7 +4,7 @@ import {useState} from "react";
 import { Link } from "react-router-dom";
 
 
-
+{/*Fonction l'affichage des liens vers les autres pages dans le header//Burger pour la version mobile */}
 
 function Nav() {
 

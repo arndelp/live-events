@@ -1,11 +1,24 @@
-import FilterD1S1 from "../Components/Filters/FilterD1S1.js"
-import Billet from "../Components/Billet"
+import FilterD1S1 from "../Components/FilterD1S1.js"
+
 import GoogleMap from "../Components/GoogleMap.tsx"
 import { Link } from "react-router-dom";
 import "../style/Home.css";
 import "../style/Map.css";
 
 function Home() {
+
+{/*Fonction du bouton Billetterie */}
+    function Billet() {   
+        return ( 
+              
+          <div className='col'>
+            <Link to="/Billetterie">
+              <button className="billet"><span className="blink">BILLETTERIE</span></button>
+            </Link>
+          </div>
+      
+            )
+      }
 
     return ( 
         <>

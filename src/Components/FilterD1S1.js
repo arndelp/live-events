@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import getImageUrl from "../getImageUrl"
 import { Link } from "react-router-dom";
-import "../../style/Card.css";
-import { all } from "axios";
+import "./../style/Programme.css";
 
 
+{/*Function permettant l'affichage des premiers concerts du festival D1S1=Day1 Schedule1*/}
 
 export default function ListD1S1() {
 
@@ -34,7 +33,7 @@ console.log(day1sch1)
        
             {/*Appelle de la fonction gerImageUrl pour récupérer l'image */}
             <img
-              src={getImageUrl(Val)}     
+              src={`../assets/${Val.imageId}.jpg`}     
               alt={Val.name}  
               className="img-fluid rounded"   
             />

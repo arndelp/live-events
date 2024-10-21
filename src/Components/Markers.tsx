@@ -1,4 +1,3 @@
-
 import React from "react"
 import { useState, useEffect } from "react";
 import {AdvancedMarker } from '@vis.gl/react-google-maps';
