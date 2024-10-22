@@ -1,6 +1,6 @@
 import React from "react"
 import { useState, useEffect, useCallback } from "react";
-import {AdvancedMarker, InfoWindow, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
+import {AdvancedMarker, InfoWindow, useAdvancedMarkerRef } from '@vis.gl/react-google-maps';
 import "../style/Markers.css";
 import { Link } from "react-router-dom";
 
@@ -61,22 +61,7 @@ const Markers = () => {
       .catch(error => console.log(error))     
     },[]);
 
-{/*Utilisation de la méthode map() pour transformer les données, puis les affilier à un composant google map AdvancedMarker */}
-  const ValMarkers = (props: {pois: Poi[]}) => {
-  return (
-    <>
-      {props.pois.map( (Val: Poi) => (
-        <AdvancedMarker
-          key={Val.key}
-          position={Val.location}>
-          <img src={Val.image} width={Val.width} height={Val.height} />                 
-        </AdvancedMarker>
-      ))}
-    </>
-  );
-};
-
-  {/*Utilisation de la méthode map() pour transformer les données, puis les affilier à un composant google map AdvancedMarker */}
+ {/*Utilisation de la méthode map() pour transformer les données, puis les affilier à un composant google map AdvancedMarker */}
 {/*Markers avec infoWindow */}
 const MarkerWithInfoWindow = (props: {pois: Poi[]}) => {
   // `markerRef` and `marker` are needed to establish the connection between
@@ -114,8 +99,8 @@ const MarkerWithInfoWindow = (props: {pois: Poi[]}) => {
       {infoWindowShown && (
         
         <InfoWindow anchor={marker} onClose={handleClose}>
-          <h2>Voir la programmation</h2>
-          <Link to= "/Programmation">
+          <h2>Voir la programmation:</h2>
+          <Link to= "/Programme">
           <p>Cliquez içi </p>
           </Link>
         </InfoWindow>
@@ -124,7 +109,6 @@ const MarkerWithInfoWindow = (props: {pois: Poi[]}) => {
     </>
   );
 };
-
 
 
 
@@ -151,14 +135,14 @@ const handleChangeToilet  = () => setShowResultsToilet(!showResultsToilet)
 {/*Un composant par type d'icone */}
 {/*Bars */}
 const ResultsBar=() => (
-  <ValMarkers   
+  <MarkerWithInfoWindow   
   pois={bars}   
   /> 
  )
 
 {/*Parking */}
 const ResultsPark=() => (
-  <ValMarkers   
+  <MarkerWithInfoWindow   
   pois={parkings}   
   /> 
  )
@@ -172,21 +156,21 @@ const ResultsPark=() => (
 
  {/*Sorties */}
  const ResultsExit=() => (
-  <ValMarkers   
+  <MarkerWithInfoWindow   
   pois={exits}   
   /> 
  )
 
  {/*Toilettes */}
  const ResultsToilet=() => (
-  <ValMarkers   
+  <MarkerWithInfoWindow   
   pois={toilets}   
   /> 
  )
 
 {/*Camping*/}
 const ResultsCamp=() => (
-  <ValMarkers
+  <MarkerWithInfoWindow
   pois={camping}
   />
 )

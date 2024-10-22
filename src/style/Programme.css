@@ -20,8 +20,7 @@
     margin-top: 2rem;
     border: none;
     font-family: katibeh, Arial, Helvetica, sans-serif;
-    font-size:0.9em;
-    
+    font-size:0.9em; 
     
 } 
 
@@ -35,7 +34,10 @@
     font-size:0.95em;
     margin: 1em 0em 1em 7em;
 }
-
+.cardHover:hover {
+    background-color: var(--gris);
+    color:aqua;
+}
 
 
 
@@ -84,4 +86,11 @@
     margin-bottom: 0.5em;
      
      
+ }
+
+ .bigCard {
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
  }

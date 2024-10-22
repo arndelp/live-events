@@ -26,3 +26,8 @@ h1.title {
     color: var(--blanc);
     
 }
+
+.cardHover:hover {
+    background-color: var(--gris);
+    color:aqua;
+}

@@ -11,9 +11,9 @@ function Home() {
     function Billet() {   
         return ( 
               
-          <div className='col'>
+          <div className='col '>
             <Link to="/Billetterie">
-              <button className="billet"><span className="blink">BILLETTERIE</span></button>
+              <button className="billet cardHover"><span className="blink">BILLETTERIE</span></button>
             </Link>
           </div>
       
@@ -24,8 +24,10 @@ function Home() {
         <>
         <div className="row background">
            
-            <h1 className="title" >NATION SOUND</h1>
+            <h1 className="title " >NATION SOUND</h1>
+            
                 <FilterD1S1 />
+              
                 <Billet /> 
                 
                 <Link to="/Plan" >

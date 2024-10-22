@@ -181,15 +181,15 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
       </>
     );
   };  
-
-  const Details= ({name, location, schedule, day, imageId, details}) => { 
+{/*Affichage des données dans de Card  et envoi dans le composant ProgrammeDetails avec Link */}
+  const Details= ({name, location, schedule, day, imageId, details, details2}) => { 
     
    
-    {/*Affichage des données dans de Card */}
+    
     return (       
-      <Link to='/Programmation/ProgrammeDetails' state={{name, location, schedule, day, imageId, details}}>       
-        <div className="cardHover row g-0 pb-2">
-                      <div className="offset-1 col-4">
+      <Link to='/Programmation/ProgrammeDetails' state={{name, location, schedule, day, imageId, details, details2}}>       
+        <div className="cardHover row g-0 pb-2 pt-2">
+                      <div className=" offset-1 col-4">
                         <img src={`../assets/${imageId}.jpg`} 
                           alt={name} 
                           className="img-fluid rounded" />
@@ -217,14 +217,15 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
                 
                   return (                      
      
-/*Envoie au composant détails des données et définition des variables name, day, shedule, imageId, details*/                         
+/* définition des variables name, day, shedule, imageId, details pour la constante Details*/                         
                   
                       <Details name={Val.name}
                         location={Val.location}
                         day={Val.day}
                         schedule={Val.schedule}
                         imageId={Val.imageId}
-                        details={Val.details} />                  
+                        details={Val.details} 
+                        details2={Val.details2} />                  
                    
                  
                 

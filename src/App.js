@@ -4,11 +4,12 @@ import Nav from "./Components/Nav";
 import Foot from "./Components/Foot";
 import Home from "./Pages/Home";
 import Billetterie from "./Pages/Billetterie";
-import Programme from "./Components/Programme"
+import Programme from "./Pages/Programme"
 import Contact from "./Pages/Contact";
 import Informations from "./Pages/Informations";
 import Plan from "./Pages/Plan";
-import ProgrammeDetails from "./Components/ProgrammeDetails";
+import ProgrammeDetails from "./Pages/ProgrammeDetails";
+
 
 
 

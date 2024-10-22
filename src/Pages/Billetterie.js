@@ -26,7 +26,7 @@ function Billetterie() {
             <h5 class="card-title">Billet</h5>
             <p class="card-name">S</p>
             <p class="card-text">Valable le 10/07/2027 </p>
-            <a href="#" class="btn btn-danger bout">Complet</a>
+            <a href="#" class="btn btn-danger">Complet</a>
           </div>
         </div>
       

@@ -21,15 +21,15 @@ export default function ListD1S1() {
   {/*on met dans Val les concerts ayant la première date et la première horaire */}
   const day1sch1 = concerts.filter(Val =>
     Val.day === "09/07/2027" && Val.schedule === "18:00 - 19:00");  
-console.log(day1sch1)
+
 
 {/*on liste le contenu de Val */}
   const listDay1Sch1 = day1sch1.map(Val =>
-    <li key={Val.id} >
+    <li key={Val.id}>
       
-      <div className="card mb-3  " >
+      <div className="card mb-3" >
         <div className="row g-0">
-          <div className="col-5">
+          <div className="col-5  ">
        
             {/*Appelle de la fonction gerImageUrl pour récupérer l'image */}
             <img
@@ -39,7 +39,7 @@ console.log(day1sch1)
             />
           </div>
         
-          <div className="col-7">
+          <div className="col-7  cardHover rounded">
             <div className="card-body ">            
               <h5 className="card-title">{Val.name}</h5>
               <p className="card-text">{Val.location}</p>
@@ -65,7 +65,7 @@ return (
 <Link to="/Programmation">
   <div className='row  g-0 kard'>
     <div className="card  pb-0">   
-      <ul>{listDay1Sch1}</ul>
+      <ul >{listDay1Sch1}</ul>
     </div>
   </div>
 </Link>
