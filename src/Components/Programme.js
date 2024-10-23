@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, } from "react";
 import { Link} from "react-router-dom";
 import '../style/Programme.css';
+import ScrollToTopButton from "./ScrollToTopButton";
 
 
 
@@ -241,7 +242,7 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
     
 return (
     /* Appel de la fonction  Button en incluant les props filtre*/
-    <div className="container-fluid">
+    <div className="container-fluid  kardProg">
     <div className="row">
    
       <h1 className="col-12 text-center my-3 fw-bold programmationh1">Programmation</h1>
@@ -264,17 +265,11 @@ return (
   </div>
   
       <Card  item={item}/> 
-    
+      <ScrollToTopButton />
     </div>
   
 </div>
-
-
-
 );
-
-
-
-
 }
+
 export default Programme ;
