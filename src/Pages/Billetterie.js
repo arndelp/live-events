@@ -6,12 +6,12 @@ function Billetterie() {
     function BilletD() {   
         return ( 
               
-          <div class="card card-fond">
-          <div class="card-body">
-            <h5 class="card-title">Billet</h5>
-            <p class="card-name">D</p>
-            <p class="card-text">Valable le 10/07/2027 </p>
-            <a href="#" class="btn btn-danger bout">Complet</a>
+          <div className="card card-fond">
+          <div className="card-body">
+            <h5 className="card-title">Billet</h5>
+            <p className="card-name">D</p>
+            <p className="card-text">Valable le 10/07/2027 </p>
+            <a href="#" className="btn btn-danger bout">Complet</a>
           </div>
         </div>
       
@@ -21,12 +21,12 @@ function Billetterie() {
       function BilletS() {   
         return ( 
               
-          <div class="card card-fond">
-          <div class="card-body">
-            <h5 class="card-title">Billet</h5>
-            <p class="card-name">S</p>
-            <p class="card-text">Valable le 10/07/2027 </p>
-            <a href="#" class="btn btn-danger">Complet</a>
+          <div className="card card-fond" >
+          <div className="card-body">
+            <h5 className="card-title">Billet</h5>
+            <p className="card-name">S</p>
+            <p className="card-text">Valable le 10/07/2027 </p>
+            <a href="#" className="btn btn-danger">Complet</a>
           </div>
         </div>
       
@@ -36,12 +36,12 @@ function Billetterie() {
       function BilletV() {   
         return ( 
               
-          <div class="card card-fond">
-          <div class="card-body">
-            <h5 class="card-title">Billet</h5>
-            <p class="card-name">V</p>
-            <p class="card-text">Valable le 09/07/2027 </p>
-            <a href="#" class="btn btn-primary bout">Acheter</a>
+          <div className="card card-fond">
+          <div className="card-body">
+            <h5 className="card-title">Billet</h5>
+            <p className="card-name">V</p>
+            <p className="card-text">Valable le 09/07/2027 </p>
+            <a href="#" className="btn btn-primary bout">Acheter</a>
           </div>
         </div>
       
@@ -51,13 +51,13 @@ function Billetterie() {
       function Pass2joursSD() {   
         return ( 
               
-          <div class="card card-fond">
-          <div class="card-body">
-            <h5 class="card-title">Pass 2 jours</h5>
-            <p class="card-name">SD</p>
-            <p class="card-text">Valable du 10/07/2027 </p>
-            <p class="card-text">au 11/07/2027</p>
-            <a href="#" class="btn btn-primary">Acheter</a>
+          <div className="card card-fond">
+          <div className="card-body">
+            <h5 className="card-title">Pass 2 jours</h5>
+            <p className="card-name">SD</p>
+            <p className="card-text">Valable du 10/07/2027 </p>
+            <p className="card-text">au 11/07/2027</p>
+            <a href="#" className="btn btn-primary">Acheter</a>
           </div>
         </div>
       
@@ -67,13 +67,13 @@ function Billetterie() {
       function Pass2joursVS() {   
         return ( 
               
-          <div class="card card-fond">
-          <div class="card-body">
-            <h5 class="card-title">Pass 2 jours</h5>
-            <p class="card-name">VS</p>
-            <p class="card-text">Valable du 09/07/2027 </p>
-            <p class="card-text">au 10/07/2027</p>
-            <a href="#" class="btn btn-primary">Acheter</a>
+          <div className="card card-fond">
+          <div className="card-body">
+            <h5 className="card-title">Pass 2 jours</h5>
+            <p className="card-name">VS</p>
+            <p className="card-text">Valable du 09/07/2027 </p>
+            <p className="card-text">au 10/07/2027</p>
+            <a href="#" className="btn btn-primary">Acheter</a>
           </div>
         </div>
       
@@ -83,13 +83,13 @@ function Billetterie() {
       function Pass3joursVSD() {   
         return ( 
               
-          <div class="card card-fond">
-          <div class="card-body">
-            <h5 class="card-title">Pass 3 jours</h5>
-            <p class="card-name">VSD</p>
-            <p class="card-text">Valable du 09/07/2027 </p>
-            <p class="card-text">au 11/07/2027</p>
-            <a href="#" class="btn btn-primary">Acheter</a>
+          <div className="card card-fond">
+          <div className="card-body">
+            <h5 className="card-title">Pass 3 jours</h5>
+            <p className="card-name">VSD</p>
+            <p className="card-text">Valable du 09/07/2027 </p>
+            <p className="card-text">au 11/07/2027</p>
+            <a href="#" className="btn btn-primary">Acheter</a>
           </div>
         </div>
       

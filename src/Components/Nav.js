@@ -72,7 +72,7 @@ function Nav() {
                         </div>                    
                     </div>
                 <div class="col-6  d-block d-lg-none">
-                    <div className="headLogoM">
+                    <div className="headLogoM" data-testId="titre">
                             <h1 >Nation Sound</h1>
                     </div>
                 </div>

@@ -1,5 +1,4 @@
-import FilterD1S1 from "../Components/FilterD1S1.js"
-
+import ConcertHomePage from "../Components/ConcertHomePage.js"
 import GoogleMap from "../Components/GoogleMap.tsx"
 import { Link } from "react-router-dom";
 import "../style/Home.css";
@@ -11,9 +10,9 @@ function Home() {
     function Billet() {   
         return ( 
               
-          <div className='col '>
+          <div className='col' data-testId="boutonBilletterie">
             <Link to="/Billetterie">
-              <button className="billet cardHover"><span className="blink">BILLETTERIE</span></button>
+              <button className="billet cardHover"><span className="blink" >BILLETTERIE</span></button>
             </Link>
           </div>
       
@@ -26,7 +25,7 @@ function Home() {
            
             <h1 className="title " >NATION SOUND</h1>
             
-                <FilterD1S1 />
+                <ConcertHomePage />
               
                 <Billet /> 
                 
