@@ -6,11 +6,11 @@ import "../style/Map.css";
 
 function Home() {
 
-{/*Fonction du bouton Billetterie */}
+/*Fonction du bouton Billetterie */
     function Billet() {   
         return ( 
               
-          <div className='col' data-testId="boutonBilletterie">
+          <div className='col' >
             <Link to="/Billetterie">
               <button className="billet cardHover"><span className="blink" >BILLETTERIE</span></button>
             </Link>
@@ -23,7 +23,7 @@ function Home() {
         <>
         <div className="row background">
            
-            <h1 className="title " >NATION SOUND</h1>
+            <h1 className="title " >NATION SOUNDS</h1>
             
                 <ConcertHomePage />
               
