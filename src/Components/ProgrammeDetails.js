@@ -6,7 +6,7 @@ import "../style/Programme.css";
 
 
 
-{/*Utilisation de la méthose useLocation de react router pour récupérer les données de Programme */}
+/*Utilisation de la méthose useLocation de react router pour récupérer les données de Programme */
 
 export default function ProgrammeDetails () {
   const location = useLocation();

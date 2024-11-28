@@ -3,28 +3,28 @@ import { Link } from "react-router-dom";
 import "./../style/Programme.css";
 
 
-{/*Function permettant l'affichage des premiers concerts du festival D1S1=Day1 Schedule1*/}
+/*Function permettant l'affichage des premiers concerts du festival D1S1=Day1 Schedule1*/
 
 export default function ConcertHomePage() {
 
-  {/*concerts est initialement vide*/}
+  /*concerts est initialement vide*/
   const [concerts, setConcerts] = useState([])
-{/*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/}
+/*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/
   useEffect(()=>{
-    fetch('dataConcerts.json')
+    fetch('http://127.0.0.1:8000/api/concerts?page=1')
     .then((response)=>response.json())
-    .then(data=>setConcerts(data.concerts))
+    .then(data=>setConcerts(data.member))
     .catch(error => console.log(error))
   },[]);
 
 
 
-  {/*on met dans Val les concerts ayant la date et l'horaire  */}
+  /*on met dans Val les concerts ayant la date et l'horaire  */
   const day1sch1 = concerts.filter(Val =>
     Val.day === "09/07/2027" && Val.schedule === "18:00 - 19:00");  
 
 
-{/*on liste le contenu de Val */}
+/*on liste le contenu de Val */
   const listDay1Sch1 = day1sch1.map(Val =>
     <li key={Val.id}>
       
@@ -58,7 +58,7 @@ export default function ConcertHomePage() {
   );
 
 
- {/*Affichage de la liste + lien vers Programmation */}
+ /*Affichage de la liste + lien vers Programmation */
 
 return ( 
 

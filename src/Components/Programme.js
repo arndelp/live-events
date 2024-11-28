@@ -10,30 +10,30 @@ import ScrollToTopButton from "./ScrollToTopButton";
 
 function Programme () {
 
-    {/*concerts est initialement vide*/}
+    /*concerts est initialement vide*/
     const [concerts, setConcerts] = useState([])
-    {/*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/}
+    /*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/
     useEffect(()=>{
-        fetch('dataConcerts.json')
+        fetch('http://127.0.0.1:8000/api/concerts?page=1')
         .then(response=>response.json())
-        .then(data=>setConcerts(data.concerts))
+        .then(data=>setConcerts(data.member))
         .catch(error => console.log(error))
     },[]);
 
-{/*Filtre des donnée */}
+/*Filtre des donnée */
 
-{/* Définition de variable */}
-{/*item est vide au début */}
+/* Définition de variable */
+/*item est vide au début */
   const [item, setItem] = useState([]);
-{/*dayItems = toutes les dates de concerts contenues dans Val. Val= tableau des données résultant de l'utilisation de la méthode map()   */}
+/*dayItems = toutes les dates de concerts contenues dans Val. Val= tableau des données résultant de l'utilisation de la méthode map()   */
   const dayItems = [...new Set(concerts.map((Val) => Val.day))];
-{/*locItems = toutes les scènes de concerts contenues dans Val.   */}
+/*locItems = toutes les scènes de concerts contenues dans Val.   */
   const locItems = [...new Set(concerts.map((Val) => Val.location))];
-{/*schItems = toutes les heures de concerts contenues dans Val   */}
+/*schItems = toutes les heures de concerts contenues dans Val   */
   const schItems = [...new Set(concerts.map((Val) => Val.schedule))]
 
 
-  {/* Filtre par jour avec la méthode filter()*/}
+  /* Filtre par jour avec la méthode filter()*/
    const filterItemDay = (curcat) => {
         const newItem = concerts.filter((newVal) => {
           
@@ -43,7 +43,7 @@ function Programme () {
       
       };
 
-  {/*Filtre par lieux avec la méthode filter() */}
+  /*Filtre par lieux avec la méthode filter() */
     const filterItemLoc = (curcat2) => {
         const newItem = concerts.filter((newVal) => {
           
@@ -53,7 +53,7 @@ function Programme () {
       
       };
 
-  {/*FIltre par horaire avec la méthode filter() */}
+  /*FIltre par horaire avec la méthode filter() */
       const filterItemSch = (curcat3) => {
         const newItem = concerts.filter((newVal) => {
           
@@ -67,13 +67,13 @@ function Programme () {
 
 
    
-{/** FIltre des données */}
+/** FIltre des données */
 
 
 const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems, locItems, schItems  }) => {
-    {/*concerts est initialement vide*/}
+    /*concerts est initialement vide*/
     const [concerts, setConcerts] = useState([])
-  {/*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/}
+  /*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/
     useEffect(()=>{
       fetch('dataConcerts.json')
       .then(response=>response.json())
@@ -182,7 +182,7 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
       </>
     );
   };  
-{/*Affichage des données dans de Card  et envoi dans le composant ProgrammeDetails avec Link */}
+/*Affichage des données dans de Card  et envoi dans le composant ProgrammeDetails avec Link */
   const Details= ({name, location, schedule, day, imageId, details, details2}) => { 
     
    

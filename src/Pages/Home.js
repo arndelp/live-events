@@ -6,7 +6,7 @@ import "../style/Map.css";
 
 function Home() {
 
-{/*Fonction du bouton Billetterie */}
+/*Fonction du bouton Billetterie */
     function Billet() {   
         return ( 
               
