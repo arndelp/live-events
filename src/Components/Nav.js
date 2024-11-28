@@ -3,8 +3,7 @@ import "../style/Nav.css";
 import {useState} from "react";
 import { Link } from "react-router-dom";
 
-
-{/*Fonction l'affichage des liens vers les autres pages dans le header//Burger pour la version mobile */}
+/*Fonction l'affichage des liens vers les autres pages dans le header//Burger pour la version mobile */
 
 function Nav() {
 
@@ -65,7 +64,7 @@ function Nav() {
                             
                             <button type="button" class="Burger btn btn-default " onClick={handleShowLinks}>
                                 
-                                <img src='../assets/burger.png'></img>
+                                <img src='../assets/burger.png' alt='burger' width={25}></img>
                                 
                             </button>
                             
@@ -73,7 +72,7 @@ function Nav() {
                     </div>
                 <div class="col-6  d-block d-lg-none">
                     <div className="headLogoM" data-testId="titre">
-                            <h1 >Nation Sound</h1>
+                            <h1 >Nation Sounds</h1>
                     </div>
                 </div>
                 <div class="col-4  d-block d-lg-none">

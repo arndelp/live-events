@@ -32,7 +32,7 @@ function ScrollToTopButton() {
 
   return (
     <div className={`scroll-to-top-button ${visible ? "visible" : ""}`}>
-      <button onClick={scrollToTop}><div><img src="../assets/fleches-vers-le-haut.png" id="fleche"/></div>Retour</button>
+      <button onClick={scrollToTop}><div><img src="../assets/fleches-vers-le-haut.png" id="fleche" alt="flêche"/></div>Retour</button>
     </div>
   );
 }

@@ -12,16 +12,13 @@ h1.title {
 }
 
 .billet {
-    font-size: 3em;
-    padding-top: 0;
+    font-size: 3em;   
     display: flexbox;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 0.3em;
-    padding-inline: 1em;
+    justify-content: center;   
+    padding: 0 1em 0.3em 1em;    
     border-radius: 1em;
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     background-color: var(--rouge);
     color: var(--blanc);
     
