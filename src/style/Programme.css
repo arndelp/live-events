@@ -42,8 +42,7 @@
 
 
 .logoSizeM {
-    display:flex;
-   
+    display:flex;   
     align-items: center;
     margin-bottom: 0px;
 }
@@ -92,5 +91,21 @@
     display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 90vh;
+ }
+
+ .imageDetails {    
+    max-width: 20vh;   
+   
+ }
+
+ .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+ }
+
+ .textDetails {
+    justify-content: left;
  }

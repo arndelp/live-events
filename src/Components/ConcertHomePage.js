@@ -11,17 +11,16 @@ export default function ConcertHomePage() {
   const [concerts, setConcerts] = useState([])
 /*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/
   useEffect(()=>{
-    fetch('http://127.0.0.1:8000/api/concerts?page=1')
+    fetch(' http://127.0.0.1:8000/api/concerts ') 
     .then((response)=>response.json())
     .then(data=>setConcerts(data.member))
     .catch(error => console.log(error))
-  },[]);
-
+  });
 
 
   /*on met dans Val les concerts ayant la date et l'horaire  */
   const day1sch1 = concerts.filter(Val =>
-    Val.day === "09/07/2027" && Val.schedule === "18:00 - 19:00");  
+    Val.day.day === "09/07/2027" && Val.schedule.schedule === "18:00 - 19:00");  
 
 
 /*on liste le contenu de Val */
@@ -34,7 +33,7 @@ export default function ConcertHomePage() {
        
             {/*Appelle de la fonction gerImageUrl pour récupérer l'image */}
             <img
-              src={`../assets/${Val.imageId}.jpg`}     
+              src={Val.fullImageUrl}     
               alt={Val.name}  
               className="img-fluid rounded"   
             />
@@ -43,9 +42,9 @@ export default function ConcertHomePage() {
           <div className="col-7  cardHover rounded">
             <div className="card-body ">            
               <h5 className="card-title">{Val.name}</h5>
-              <p className="card-text">{Val.location}</p>
-              <p className="card-text">{Val.day}</p>
-              <p className="card-text">{Val.schedule}</p>
+              <p className="card-text">{Val.location.location}</p>
+              <p className="card-text">{Val.day.day}</p>
+              <p className="card-text">{Val.schedule.schedule}</p>
             </div>
           </div>
         </div>

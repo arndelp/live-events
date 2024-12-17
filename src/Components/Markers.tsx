@@ -10,11 +10,7 @@ import { Link } from "react-router-dom";
 /*Récupération des coordonées des bars du fichier JSON */
 
 
-<<<<<<< HEAD
 const  Markers = () => {
-=======
-const Markers = () => {
->>>>>>> 2d2e4a85df3c8767c4e40239a02f7192882554c9
 /* La constante bars est vide à l'initiale */
   const [bars, setBars] = useState([])
 /*envoi une requête et récupération des données dans 'dataMap.json' puis les stockent dans bars avec setBars*/
@@ -73,11 +69,7 @@ const Markers = () => {
         <AdvancedMarker
           key={Val.key}
           position={Val.location}>
-<<<<<<< HEAD
           <img src={Val.image} width={Val.width} height={Val.height} alt="marker" />                 
-=======
-          <img src={Val.image} width={Val.width} height={Val.height} alt="marker"/>                 
->>>>>>> 2d2e4a85df3c8767c4e40239a02f7192882554c9
         </AdvancedMarker>
       ))}
     </>
@@ -136,12 +128,8 @@ const MarkerWithInfoWindow = (props: {pois: Poi[]}) => {
 
 
 
-<<<<<<< HEAD
-/* fonction d'affichage des icônes handleChange...*/{/*Affichage par défaut: true, Cache des icones lors du click  */
-=======
 /* fonction d'affichage des icônes handleChange...*/
 /*Affichage par défaut: true, Cache des icones lors du click  */
->>>>>>> 2d2e4a85df3c8767c4e40239a02f7192882554c9
 const [showResultsBars, setShowResultsBars] = React.useState(true)
 const handleChangeBars  = () => setShowResultsBars(!showResultsBars)
 
@@ -210,62 +198,38 @@ const ResultsCamp=() => (
      <div className="ico">
           <input type="checkbox" checked={showResultsBars} onChange={handleChangeBars} />
           { showResultsBars ? <ResultsBar /> : null }
-<<<<<<< HEAD
           <img src="../assets/bars.png" width="25em" height= "25em" alt="Bar"/> 
-=======
-          <img src="../assets/bars.png" width="25em" height= "25em" alt="icone bar"/> 
->>>>>>> 2d2e4a85df3c8767c4e40239a02f7192882554c9
       </div>  
       <div className="ico">
           <input type="checkbox" checked={showResultsPark} onChange={handleChangePark} />
           { showResultsPark ? <ResultsPark /> : null }
-<<<<<<< HEAD
           <img src="../assets/parking.png" width="20em" height= "20em" alt="Park"/> 
-=======
-          <img src="../assets/parking.png" width="20em" height= "20em" alt="icone parking"/> 
->>>>>>> 2d2e4a85df3c8767c4e40239a02f7192882554c9
       </div>
       <div className="ico">
           <input type="checkbox" checked={showResultsScenes} onChange={handleChangeScenes} />
           { showResultsScenes ? <ResultsScenes /> : null }
-<<<<<<< HEAD
           <img src="../assets/scene.png" width="25em" height= "25em" alt="Scène"/>
-=======
-          <img src="../assets/scene.png" width="25em" height= "25em" alt="icone scene"/>
->>>>>>> 2d2e4a85df3c8767c4e40239a02f7192882554c9
       </div>  
       <div className="ico">
           <input type="checkbox" checked={showResultsExit} onChange={handleChangeExit} />
           { showResultsExit ? <ResultsExit /> : null }
-<<<<<<< HEAD
           <img src="../assets/entrer.png" width="25em" height= "25em" alt="Exit"/>
-=======
-          <img src="../assets/entrer.png" width="25em" height= "25em" alt="icone exit"/>
->>>>>>> 2d2e4a85df3c8767c4e40239a02f7192882554c9
       </div>  
       <div className="ico">
           <input type="checkbox" checked={showResultsCamp} onChange={handleChangeCamp} />
           { showResultsCamp ? <ResultsCamp /> : null }
-<<<<<<< HEAD
           <img src="../assets/camping.png" width="25em" height= "25em" alt="Camping"/>
-=======
-          <img src="../assets/camping.png" width="25em" height= "25em" alt="icone camping"/>
->>>>>>> 2d2e4a85df3c8767c4e40239a02f7192882554c9
       </div>  
       <div className="ico">
           <input type="checkbox" checked={showResultsToilet} onChange={handleChangeToilet} />
           { showResultsToilet ? <ResultsToilet /> : null }
-<<<<<<< HEAD
           <img src="../assets/toilettes.png" width="25em" height= "25em" alt="Toilets"/>
-=======
-          <img src="../assets/toilettes.png" width="25em" height= "25em" alt="icone toilette"/>
->>>>>>> 2d2e4a85df3c8767c4e40239a02f7192882554c9
       </div>  
     </div> 
     </>
   );
 };
-}
+
 export default Markers;
 
 

@@ -14,7 +14,7 @@ export default function ProgrammeDetails () {
   const name = location.state.name;
   const day = location.state.day;
   const place = location.state.location
-  const imageId = location.state.imageId
+  const fullImageUrl = location.state.fullImageUrl
   const details = location.state.details
   const details2 = location.state.details2
 
@@ -28,20 +28,22 @@ export default function ProgrammeDetails () {
       <div class= "col-12 bigCard">
     
    
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={`../assets/${imageId}.jpg`}  />
+<Card style={{ width: '80vh' }}>
+    <div class="container">
+      <Card.Img variant="top" src={fullImageUrl} class="imageDetails " />
+      </div>
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>
+        <Card.Title class="fs-1 lh-sm link-danger" >{name}</Card.Title>
+        <Card.Text class="fs-3 lh-sm">
           {day}
         </Card.Text>
-        <Card.Text>
+        <Card.Text class="fs-3 lh-sm">
           {place}
         </Card.Text>
-        <Card.Text>
+        <Card.Text  class="fs-4 lh-sm">
           {details}
         </Card.Text>
-        <Card.Text>
+        <Card.Text  class="fs-5 lh-sm">
           {details2}
         </Card.Text>
 

@@ -14,11 +14,11 @@ function Programme () {
     const [concerts, setConcerts] = useState([])
     /*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/
     useEffect(()=>{
-        fetch('http://127.0.0.1:8000/api/concerts?page=1')
-        .then(response=>response.json())
-        .then(data=>setConcerts(data.member))
-        .catch(error => console.log(error))
-    },[]);
+      fetch(' http://127.0.0.1:8000/api/concerts ') 
+      .then((response)=>response.json())
+      .then(data=>setConcerts(data.member))
+      .catch(error => console.log(error))
+    });
 
 /*Filtre des donnée */
 
@@ -26,18 +26,18 @@ function Programme () {
 /*item est vide au début */
   const [item, setItem] = useState([]);
 /*dayItems = toutes les dates de concerts contenues dans Val. Val= tableau des données résultant de l'utilisation de la méthode map()   */
-  const dayItems = [...new Set(concerts.map((Val) => Val.day))];
+  const dayItems = [...new Set(concerts.map((Val) => Val.day.day))];
 /*locItems = toutes les scènes de concerts contenues dans Val.   */
-  const locItems = [...new Set(concerts.map((Val) => Val.location))];
+  const locItems = [...new Set(concerts.map((Val) => Val.location.location))];
 /*schItems = toutes les heures de concerts contenues dans Val   */
-  const schItems = [...new Set(concerts.map((Val) => Val.schedule))]
+  const schItems = [...new Set(concerts.map((Val) => Val.schedule.schedule))]
 
 
   /* Filtre par jour avec la méthode filter()*/
    const filterItemDay = (curcat) => {
         const newItem = concerts.filter((newVal) => {
           
-          return newVal.day === curcat;
+          return newVal.day.day === curcat;
         });
         setItem(newItem)
       
@@ -47,7 +47,7 @@ function Programme () {
     const filterItemLoc = (curcat2) => {
         const newItem = concerts.filter((newVal) => {
           
-          return newVal.location === curcat2 
+          return newVal.location.location === curcat2 
         });
         setItem(newItem)
       
@@ -57,7 +57,7 @@ function Programme () {
       const filterItemSch = (curcat3) => {
         const newItem = concerts.filter((newVal) => {
           
-          return newVal.schedule === curcat3 ;
+          return newVal.schedule.schedule === curcat3 ;
         });
         setItem(newItem)
       };
@@ -73,13 +73,13 @@ function Programme () {
 const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems, locItems, schItems  }) => {
     /*concerts est initialement vide*/
     const [concerts, setConcerts] = useState([])
-  /*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/
-    useEffect(()=>{
-      fetch('dataConcerts.json')
-      .then(response=>response.json())
-      .then(data=>setConcerts(data.concerts))
-      .catch(error => console.log(error))
-    },[]);
+  /*envoi une requête et récupération des données dans tabla concerts de l'Api*/
+  useEffect(()=>{
+    fetch(' http://127.0.0.1:8000/api/concerts ') 
+    .then((response)=>response.json())
+    .then(data=>setConcerts(data.member))
+    .catch(error => console.log(error))
+  });
   
     return (
   
@@ -92,6 +92,9 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
         <div className="col-1 Drop">
           <select> 
             {/*Ajout de l'option All (pas de filtre), lors du click affichage de tout les concerts du JSON*/}
+            <option>
+              Selectionner
+            </option>
             <option
                 className="btn-white text-black p-1 px-3 mx-5 fw-bold btn"
                 onClick={() => setItem(concerts)}          
@@ -125,22 +128,25 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
         </div>
         <div className="col-1 Drop">
           <select  label="Scène">
-          <option
+            <option>
+                Selectionner
+            </option>
+            <option
                 className="btn-white text-black p-1 px-3 mx-5 fw-bold btn"
                 onClick={() => setItem(concerts)}
               >
                 All
-              </option>    
-            {locItems.map((Val, id) => {
-           
-            return (
-              <option
-                className="btn-white text-black p-1 px-2 mx-5 btn fw-bold"
-                onClick={() => filterItemLoc(Val)}
-                key={id}              
-              >
-                {Val}
-              </option>
+            </option>    
+              {locItems.map((Val, id) => {
+            
+              return (
+                <option
+                  className="btn-white text-black p-1 px-2 mx-5 btn fw-bold"
+                  onClick={() => filterItemLoc(Val)}
+                  key={id}              
+                >
+                  {Val}
+                </option>
             );
           })}
               
@@ -157,12 +163,15 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
         </div>
         <div className="col-1 Drop">
           <select>
-          <option
+          <option>
+              Selectionner
+            </option>
+            <option
                   className="btn-white text-black p-1 px-3 mx-5 fw-bold btn"
                   onClick={() => setItem(concerts)}
                 >
                   All
-                </option>    
+            </option>    
             { schItems.map((Val, id) => {          
               
               return (
@@ -183,16 +192,18 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
     );
   };  
 /*Affichage des données dans de Card  et envoi dans le composant ProgrammeDetails avec Link */
-  const Details= ({name, location, schedule, day, imageId, details, details2}) => { 
+  const Details= ({name, location, schedule, day, fullImageUrl, details, details2}) => { 
     
-   
     
+
+      
+      
     return (       
-      <Link to='/Programmation/ProgrammeDetails' state={{name, location, schedule, day, imageId, details, details2}}>       
+      <Link to='/Programmation/ProgrammeDetails' state={{name, location, schedule, day, fullImageUrl, details, details2}}>       
         <div className="cardHover row g-0 pb-2 pt-2">
                       <div className=" offset-1 col-4">
-                        <img src={`../assets/${imageId}.jpg`} 
-                          alt={name} 
+                        <img src={fullImageUrl}
+                          alt={concerts.name} 
                           className="img-fluid rounded" />
                       </div>
                     <div className="offset-1 col-6 ">
@@ -218,13 +229,13 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
                 
                   return (                      
      
-/* définition des variables name, day, shedule, imageId, details pour la constante Details*/                         
+/* définition des variables name, day, shedule, fullImageUrl, details pour la constante Details*/                         
                   
                       <Details name={Val.name}
-                        location={Val.location}
-                        day={Val.day}
-                        schedule={Val.schedule}
-                        imageId={Val.imageId}
+                        location={Val.location.location}
+                        day={Val.day.day}
+                        schedule={Val.schedule.schedule}
+                        fullImageUrl={Val.fullImageUrl}
                         details={Val.details} 
                         details2={Val.details2} />                  
                    
