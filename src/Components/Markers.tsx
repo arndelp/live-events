@@ -60,6 +60,14 @@ const  Markers = () => {
       .then(data=>setCamping(data.camping))
       .catch(error => console.log(error))     
     },[]);
+  /*idem pour boutique*/
+  const [shop, setShop] = useState([])
+    useEffect(()=>{
+      fetch('dataMap.json')
+      .then(response=>response.json())
+      .then(data=>setShop(data.shop))
+      .catch(error => console.log(error))     
+    },[]);
 
 /*Utilisation de la méthode map() pour transformer les données, puis les affilier à un composant google map AdvancedMarker */
   const ValMarkers = (props: {pois: Poi[]}) => {
@@ -148,6 +156,9 @@ const handleChangeExit  = () => setShowResultsExit(!showResultsExit)
 const [showResultsToilet, setShowResultsToilet] = React.useState(true)
 const handleChangeToilet  = () => setShowResultsToilet(!showResultsToilet)
 
+const [showResultsShop, setShowResultsShop] = React.useState(true)
+const handleChangeShop  = () => setShowResultsShop(!showResultsShop)
+
 /*Un composant par type d'icone */
 /*Bars */
 const ResultsBar=() => (
@@ -191,6 +202,13 @@ const ResultsCamp=() => (
   />
 )
 
+/*Boutique*/
+const ResultsShop=() => (
+  <ValMarkers
+  pois={shop}
+  />
+)
+
   return (
     <>    
 {/*Affichage conditionnel ds icones avec une checkbox une checkbox (Appel du composant des icones + fonction d'affichage/cache des icones handleChange...*/} 
@@ -224,7 +242,12 @@ const ResultsCamp=() => (
           <input type="checkbox" checked={showResultsToilet} onChange={handleChangeToilet} />
           { showResultsToilet ? <ResultsToilet /> : null }
           <img src="../assets/toilettes.png" width="25em" height= "25em" alt="Toilets"/>
-      </div>  
+      </div>
+      <div className="ico">
+          <input type="checkbox" checked={showResultsShop} onChange={handleChangeShop} />
+          { showResultsShop ? <ResultsShop /> : null }
+          <img src="../assets/boutique.png" width="25em" height= "25em" alt="Boutique"/>
+      </div>   
     </div> 
     </>
   );

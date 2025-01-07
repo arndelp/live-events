@@ -9,6 +9,8 @@ import Contact from "./Pages/Contact";
 import Informations from "./Pages/Informations";
 import Plan from "./Pages/Plan";
 import ProgrammeDetails from "./Components/ProgrammeDetails";
+import Submitted from "./Pages/Submitted";
+import Confidential from "./Pages/Confidential";
 
 
 
@@ -24,6 +26,7 @@ function App() {
       <Nav />     
         
         <Routes>
+
           <Route path="/" element={ 
             <Home />         }>           
           </Route>  
@@ -32,27 +35,34 @@ function App() {
           </Route>  
 
           <Route path="/Programmation/ProgrammeDetails" element={<ProgrammeDetails /> } >
-          </Route>
-          
-           
-                                            
-            
-          
-          
+          </Route>         
+                     
           <Route path="/billetterie" element={
             <Billetterie />  }>
           </Route>  
+
           <Route path="/Informations" element={
             <Informations />  }>
           </Route>
                 
           <Route path="/Plan" element={ 
-            <Plan />         }>    
-                 
-          </Route>                   
+            <Plan />         }>                     
+          </Route>    
+
           <Route path="/Contact" element={            
             <Contact />     }>
           </Route>
+
+          <Route path="/Submitted" element={            
+            <Submitted />     }>
+          </Route>
+
+          <Route path="/Confidential" element={
+            <Confidential /> }>
+
+          </Route>
+          
+          
           
         </Routes>
        
