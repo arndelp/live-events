@@ -20,10 +20,16 @@
 .card-fond {
    background-color: var(--gris);
    max-width: 15em;
+   height: auto;
    
 }
 
 .btn {
    text-align: center;
    padding-top: 0em;
+   margin-top: 2em;
+}
+
+.card-text {
+   padding-top:0.5em;
 }

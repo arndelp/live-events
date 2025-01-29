@@ -14,30 +14,34 @@ function Programme () {
     const [concerts, setConcerts] = useState([])
     /*envoi une requête et récupération des données dans 'dataConcerts.json' puis les stockent dans concerts avec setConcerts*/
     useEffect(()=>{
-      fetch(' http://127.0.0.1:8000/api/concerts ') 
-      .then((response)=>response.json())
-      .then(data=>setConcerts(data.member))
-      .catch(error => console.log(error))
-    });
-
+           fetch(' http://127.0.0.1:8000/api/concerts ') 
+           .then((response)=>response.json())
+           .then((data)=>{setConcerts([data]);
+            
+           
+         })
+           .catch(error => console.log(error))
+           
+         });
+         console.log(concerts)
 /*Filtre des donnée */
 
 /* Définition de variable */
 /*item est vide au début */
   const [item, setItem] = useState([]);
 /*dayItems = toutes les dates de concerts contenues dans Val. Val= tableau des données résultant de l'utilisation de la méthode map()   */
-  const dayItems = [...new Set(concerts.map((Val) => Val.day.day))];
+  const dayItems = [...new Set(concerts.map((Val) => Val.day))];
 /*locItems = toutes les scènes de concerts contenues dans Val.   */
-  const locItems = [...new Set(concerts.map((Val) => Val.location.location))];
+  const locItems = [...new Set(concerts.map((Val) => Val.location))];
 /*schItems = toutes les heures de concerts contenues dans Val   */
-  const schItems = [...new Set(concerts.map((Val) => Val.schedule.schedule))]
+  const schItems = [...new Set(concerts.map((Val) => Val.schedule))]
 
 
   /* Filtre par jour avec la méthode filter()*/
    const filterItemDay = (curcat) => {
         const newItem = concerts.filter((newVal) => {
           
-          return newVal.day.day === curcat;
+          return newVal.day === curcat;
         });
         setItem(newItem)
       
@@ -47,7 +51,7 @@ function Programme () {
     const filterItemLoc = (curcat2) => {
         const newItem = concerts.filter((newVal) => {
           
-          return newVal.location.location === curcat2 
+          return newVal.location === curcat2 
         });
         setItem(newItem)
       
@@ -57,7 +61,7 @@ function Programme () {
       const filterItemSch = (curcat3) => {
         const newItem = concerts.filter((newVal) => {
           
-          return newVal.schedule.schedule === curcat3 ;
+          return newVal.schedule === curcat3 ;
         });
         setItem(newItem)
       };
@@ -77,10 +81,10 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
   useEffect(()=>{
     fetch(' http://127.0.0.1:8000/api/concerts ') 
     .then((response)=>response.json())
-    .then(data=>setConcerts(data.member))
+    .then(data=>setConcerts([data]))
     .catch(error => console.log(error))
   });
-  
+  console.log(concerts)
     return (
   
       <>  
@@ -203,7 +207,7 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
         <div className="cardHover row g-0 pb-2 pt-2">
                       <div className=" offset-1 col-4">
                         <img src={fullImageUrl}
-                          alt={concerts.name} 
+                          alt={name} 
                           className="img-fluid rounded" />
                       </div>
                     <div className="offset-1 col-6 ">
@@ -232,9 +236,9 @@ const Buttons = ({ filterItemLoc,filterItemDay,filterItemSch, setItem, dayItems,
 /* définition des variables name, day, shedule, fullImageUrl, details pour la constante Details*/                         
                   
                       <Details name={Val.name}
-                        location={Val.location.location}
-                        day={Val.day.day}
-                        schedule={Val.schedule.schedule}
+                        location={Val.location}
+                        day={Val.day}
+                        schedule={Val.schedule}
                         fullImageUrl={Val.fullImageUrl}
                         details={Val.details} 
                         details2={Val.details2} />                  

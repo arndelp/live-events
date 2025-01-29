@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "flowbite-react";
+import "../style/ConcertHomePage.css";
+
+
 
 
 /*Function permettant l'affichage des premiers concerts du festival D1S1=Day1 Schedule1*/
@@ -13,22 +16,42 @@ export default function ConcertHomePage() {
   useEffect(()=>{
     fetch(' http://127.0.0.1:8000/api/concerts ') 
     .then((response)=>response.json())
-    .then(data=>setConcerts(data.member))
+    .then(data=>setConcerts([data]))
     .catch(error => console.log(error))
   });
 
 
   /*on met dans Val les concerts ayant la date et l'horaire  */
   const day1sch1 = concerts.filter(Val =>
-    Val.day.day === "09/07/2027" && Val.schedule.schedule === "18:00 - 19:00");  
+    Val.day === "09/07/2027" && Val.schedule === "18:00 - 19:00");  
 
 
 /*on liste le contenu de Val , affichage dans des cards*/
   const listDay1Sch1 = day1sch1.map(Val =>
-<li key={Val.id}>
-  <div class="row">
-    <Card className="max-w-sm" imgSrc={Val.fullImageUrl} imgAlt="{Val.name}" horizontal>
+<li key={Val.id} >
+<Card className="max-w-md " imgSrc={Val.fullImageUrl} horizontal>
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      {Val.name}
+      </h5>
+      <p className="font-normal text-gray-700 dark:text-gray-400">
+      {Val.location}
+      </p>
+      <p className="font-normal text-gray-700 dark:text-gray-400">
+      {Val.day}
+      </p>
+      <p className="font-normal text-gray-700 dark:text-gray-400">
+      {Val.schedule}
+      </p>
+    </Card>
+
+
+
+    {/* <Card 
+      className="max-w-md "
+      width={200} height={200} imgSrc={Val.fullImageUrl} imgAlt="{Val.name}" horizontal >
+       
+       
+      <h5 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white m-0 ">
       {Val.name}
       </h5>
       <p className="font-normal text-gray-700 dark:text-gray-400">
@@ -40,8 +63,8 @@ export default function ConcertHomePage() {
       <p className="font-normal text-gray-700 dark:text-gray-400">
       {Val.schedule.schedule}
       </p>
-    </Card>
-  </div>
+    </Card> */}
+  
 
 
 

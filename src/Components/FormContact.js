@@ -1,12 +1,13 @@
-import React, { useState, useRef }  from 'react';
+import React, { useState}  from 'react';
 import Axios from 'axios';
 import "../style/FormContact.css";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
-import { GoogleReCaptchaProvider , GoogleReCaptchaCheckbox} from '@google-recaptcha/react';
 import { Link } from "react-router-dom";
-
+import ReCAPTCHA from "react-google-recaptcha";
+//site: 6LdKvLkqAAAAAA4lDxCXoJkwK43guHUk53d6bCZ3
+//secrète: 6LdKvLkqAAAAAIlkBHWQOu5jX-TBohlIe_6f4BAC
 
 function FormContact() {
     const navigate = useNavigate()
@@ -20,6 +21,10 @@ function FormContact() {
         email: "",
         message:""         
     })
+
+    const [value, setValue] = useState(null)
+    //fonction affichage état du recaptcha
+    
 
     //fonction submit utilisant le client HTTP Axios, permet le POST des data à l'url de l'api
     function submit(e){
@@ -68,25 +73,20 @@ function FormContact() {
                         <Form.Control className="field" onChange={(e)=>handle(e)} id="message" name="message" value={data.message} as="textarea" rows={5} required></Form.Control>
                         
                         <Form.Check className="checkRGPD " label={"En cochant cette case, je consens au traitement de mes données personnelles afin de permettre à J’ai lu de me répondre de la manière la plus pertinente et ce, conformément à la politique de confidentialité dont j’ai pris connaissance et que j’accepte sans réserve." } id={`checkBox`} required></Form.Check>
-                        <Link to="/confidential">
+                        <Link to="/confidential" >
                             <Button className="checkRGPDLink" variant="link">Lire la politique de confidentialité</Button>
                         </Link>
-                       
-                        {/* <GoogleReCaptchaProvider
-                            type="v2-checkbox"
-                            siteKey="6Ldp8a4qAAAAAO3YGheH6Ya7rSNl48r-8SS9LGKO"                                
-                        >
-                            <GoogleReCaptchaCheckbox
-                                onChange={(token) => {
-                                console.log(token);
-                                }}
-                                required
+
+                        <div class="row">
+                        <ReCAPTCHA
+                            sitekey="6LdKvLkqAAAAAA4lDxCXoJkwK43guHUk53d6bCZ3"
+                            onChange={setValue}
+                            
                         />
-                        </GoogleReCaptchaProvider> */}
-                    
+                        </div>
 
                         <div class="submitbutton ">
-                            <Button variant="secondary" size="lg" className="boutonSubmit" type='submit'>
+                            <Button variant="secondary" size="lg" className="boutonSubmit" type='submit' disabled={!value} >
                                 Envoyer
                             </Button>
                         </div> 

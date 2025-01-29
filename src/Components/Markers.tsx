@@ -1,260 +1,253 @@
-import React from "react"
-import { useState, useEffect, useCallback } from "react";
-import {AdvancedMarker, InfoWindow, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
-import "../style/Markers.css";
-import { Link } from "react-router-dom";
+import React, {useCallback, useState, useEffect} from 'react';
 
 
-                                                        /* Affichage des Markers*/
+import {
+  AdvancedMarker,
+  AdvancedMarkerAnchorPoint,
+  AdvancedMarkerProps,
+  APIProvider,
+  InfoWindow,
+  Map,
+  Pin,
+  useAdvancedMarkerRef,
+  CollisionBehavior
+} from '@vis.gl/react-google-maps';
+import './style.css';
+import ControlPanel from './control-panel';
 
-/*Récupération des coordonées des bars du fichier JSON */
+export type AnchorPointName = keyof typeof AdvancedMarkerAnchorPoint;
 
 
-const  Markers = () => {
-/* La constante bars est vide à l'initiale */
-  const [bars, setBars] = useState([])
-/*envoi une requête et récupération des données dans 'dataMap.json' puis les stockent dans bars avec setBars*/
-    useEffect(()=>{
-     fetch('dataMap.json')
-     .then(response=>response.json())
-     .then(data=>setBars(data.bars))
-     .catch(error => console.log(error))     
-   },[]);
-/*idem pour parkings */
-  const [parkings, setParkings] = useState([])
-   useEffect(()=>{
-     fetch('dataMap.json')
-     .then(response=>response.json())
-     .then(data=>setParkings(data.parkings))
-     .catch(error => console.log(error))     
-   },[]);
-/*idem pour scenes */
-  const [scenes, setScenes] = useState([])
-    useEffect(()=>{
-      fetch('dataMap.json')
-      .then(response=>response.json())
-      .then(data=>setScenes(data.scenes))
-      .catch(error => console.log(error))     
-    },[]);
-/*idem pour exits */
-  const [exits, setExits] = useState([])
-    useEffect(()=>{
-     fetch('dataMap.json')
-     .then(response=>response.json())
-     .then(data=>setExits(data.exits))
-     .catch(error => console.log(error))     
-   },[]);
-/*idem pour toilets */
-  const [toilets, setToilets] = useState([])
-    useEffect(()=>{
-      fetch('dataMap.json')
-      .then(response=>response.json())
-      .then(data=>setToilets(data.toilets))
-      .catch(error => console.log(error))     
-    },[]);
-/*idem pour camping */
-  const [camping, setCamping] = useState([])
-    useEffect(()=>{
-      fetch('dataMap.json')
-      .then(response=>response.json())
-      .then(data=>setCamping(data.camping))
-      .catch(error => console.log(error))     
-    },[]);
-  /*idem pour boutique*/
-  const [shop, setShop] = useState([])
-    useEffect(()=>{
-      fetch('dataMap.json')
-      .then(response=>response.json())
-      .then(data=>setShop(data.shop))
-      .catch(error => console.log(error))     
-    },[]);
-
-/*Utilisation de la méthode map() pour transformer les données, puis les affilier à un composant google map AdvancedMarker */
-  const ValMarkers = (props: {pois: Poi[]}) => {
-  return (
-    <>
-      {props.pois.map( (Val: Poi) => (
-        <AdvancedMarker
-          key={Val.key}
-          position={Val.location}>
-          <img src={Val.image} width={Val.width} height={Val.height} alt="marker" />                 
-        </AdvancedMarker>
-      ))}
-    </>
-  );
+/////////////////////////////////////////////////////////////////////////////////////////
+type MarkerData = {
+  id: number;
+  position: google.maps.LatLngLiteral;
+  type: string;
+  zIndex: number;
+  info: string;
+   
 };
 
-  /*Utilisation de la méthode map() pour transformer les données, puis les affilier à un composant google map AdvancedMarker */
-/*Markers avec infoWindow */
-const MarkerWithInfoWindow = (props: {pois: Poi[]}) => {
-  // `markerRef` and `marker` are needed to establish the connection between
-  // the marker and infowindow (if you're using the Marker component, you
-  // can use the `useMarkerRef` hook instead).
-  const [markerRef, marker] = useAdvancedMarkerRef();
 
+///////////////////////////////////////////////////////////////////////////////////
+export default function Markers  ()  {
+ function GetData() {
+  const [data, setData] = useState<MarkerData[]>([]);
+
+  useEffect(() => {
+    const api = async () => {
+      const result = await fetch("http://127.0.0.1:8000/api/markers", {
+        method: "GET"
+      });
+      const jsonData = await result.json();
+                setData(jsonData);
+    };
+
+    api();
+  }, []);
+
+ 
+console.log(data)
+  return data;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+const data = GetData()
+  .sort((a, b) => b.position.lat - a.position.lat)
+  .map((dataItem, index) => ({...dataItem, zIndex: index}));
+
+
+
+
+
+
+const Z_INDEX_SELECTED = data.length;
+const Z_INDEX_HOVER = data.length + 1;
+
+const API_KEY = 'AIzaSyDyFJl07pOphogij6mYHfO311l_LpvJ85g'
+
+
+   
+
+
+  const [markers] = useState(data);
+  
+  const [hoverId, setHoverId] = useState<number | null>(null);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+
+  const [anchorPoint, setAnchorPoint] = useState('BOTTOM' as AnchorPointName);
+  const [selectedMarker, setSelectedMarker] =
+    useState<google.maps.marker.AdvancedMarkerElement | null>(null);
   const [infoWindowShown, setInfoWindowShown] = useState(false);
 
-  // clicking the marker will toggle the infowindow
-  const handleMarkerClick = useCallback(
-    () => setInfoWindowShown(isShown => !isShown),
+  const onMouseEnter = useCallback((id: number | null) => setHoverId(id), []);
+  const onMouseLeave = useCallback(() => setHoverId(null), []);
+  const onMarkerClick = useCallback(
+    (id: number | null, marker?: google.maps.marker.AdvancedMarkerElement) => {
+      setSelectedId(id);
+
+      if (marker) {
+        setSelectedMarker(marker);
+      }
+
+      if (id !== selectedId) {
+        setInfoWindowShown(true);
+      } else {
+        setInfoWindowShown(isShown => !isShown);
+      }
+    },
+    [selectedId]
+  );
+
+  const onMapClick = useCallback(() => {
+    setSelectedId(null);
+    setSelectedMarker(null);
+    setInfoWindowShown(false);
+  }, []);
+
+  const handleInfowindowCloseClick = useCallback(
+    () => setInfoWindowShown(false),
     []
   );
 
-  // if the maps api closes the infowindow, we have to synchronize our state
-  const handleClose = useCallback(() => setInfoWindowShown(false), []);
-
   return (
+    <APIProvider apiKey={API_KEY} libraries={['marker']}>
+      <Map
+        mapId={'d17a67bf932afd78'}
+        defaultZoom={15.477}
+        defaultCenter={{lat: 48.64627130950389, lng: 1.8125529133067797}}
+        gestureHandling={'greedy'}
+        onClick={onMapClick}
+        clickableIcons={false}
+        disableDefaultUI>
+        {markers.map(({id, zIndex: zIndexDefault, position, type}) => {
+          let zIndex = zIndexDefault;
 
-    <>
-    {props.pois.map( (Val: Poi) => (
-      <AdvancedMarker
-        key={Val.key}
-        ref={markerRef}
-        position={Val.location}
-        onClick={handleMarkerClick}>
-        <img src={Val.image} width={Val.width} height={Val.height} alt="marker"/>
-        </AdvancedMarker>
-        
-      
-    ))}
+          if (hoverId === id) {
+            zIndex = Z_INDEX_HOVER;
+          }
 
-  
-      {infoWindowShown && (
-        
-        <InfoWindow anchor={marker} onClose={handleClose}>
-          <h2>Voir la programmation</h2>
-          <Link to= "/Programmation">
-          <p>Cliquez içi </p>
-          </Link>
-        </InfoWindow>
+          if (selectedId === id) {
+            zIndex = Z_INDEX_SELECTED;
+          }
+
+          if (type === 'BAR') {
+            return (
+              <AdvancedMarkerWithRef
+                onMarkerClick={(
+                  marker: google.maps.marker.AdvancedMarkerElement
+                ) => onMarkerClick(id, marker)}
+                onMouseEnter={() => onMouseEnter(id)}
+                onMouseLeave={onMouseLeave}
+                key={id}
+                zIndex={zIndex}
+                className="custom-marker"
+                style={{
+                  transform: `scale(${[hoverId, selectedId].includes(id) ? 1.3 : 1})`,
+                  transformOrigin: AdvancedMarkerAnchorPoint['BOTTOM'].join(' ')
+                }}
+                position={position}>
+                <Pin
+                  background={selectedId === id ? '#22ccff' : null}
+                  borderColor={selectedId === id ? '#1e89a1' : null}
+                  glyphColor={selectedId === id ? '#0f677a' : null}
+                />
+              </AdvancedMarkerWithRef>
+            );
+          }
+
+          if (type === 'SCENE') {
+            return (
+              <React.Fragment key={id}>
+                <AdvancedMarkerWithRef
+                  position={position}
+                  zIndex={zIndex}
+                  anchorPoint={AdvancedMarkerAnchorPoint[anchorPoint]}
+                  className="custom-marker"
+                  style={{
+                    transform: `scale(${[hoverId, selectedId].includes(id) ? 1.3 : 1})`,
+                    transformOrigin:
+                      AdvancedMarkerAnchorPoint[anchorPoint].join(' ')
+                  }}
+                  onMarkerClick={(
+                    marker: google.maps.marker.AdvancedMarkerElement
+                  ) => onMarkerClick(id, marker)}
+                  onMouseEnter={() => onMouseEnter(id)}
+                  collisionBehavior={
+                    CollisionBehavior.OPTIONAL_AND_HIDES_LOWER_PRIORITY
+                  }
+                  onMouseLeave={onMouseLeave}>
+                  <div
+                    className={`custom-html-content ${selectedId === id ? 'selected' : ''}`}></div>
+                </AdvancedMarkerWithRef>
+
+                {/* anchor point visualization marker */}
+                <AdvancedMarkerWithRef
+                  onMarkerClick={(
+                    marker: google.maps.marker.AdvancedMarkerElement
+                  ) => onMarkerClick(id, marker)}
+                  zIndex={zIndex + 1}
+                  onMouseEnter={() => onMouseEnter(id)}
+                  onMouseLeave={onMouseLeave}
+                  anchorPoint={AdvancedMarkerAnchorPoint.CENTER}
+                  position={position}>
+                  <div className="visualization-marker"></div>
+                </AdvancedMarkerWithRef>
+              </React.Fragment>
+            );
+          }
+        })}
+
+        {infoWindowShown && selectedMarker && (
+          <InfoWindow
+            anchor={selectedMarker}
+            pixelOffset={[0, -2]}
+            onCloseClick={handleInfowindowCloseClick}>
+            <h2>Marker {selectedId}</h2>
+            <p>Some arbitrary html to be rendered into the InfoWindow.</p>
+          </InfoWindow>
         )}
-
-    </>
+      </Map>
+      <ControlPanel
+        anchorPointName={anchorPoint}
+        onAnchorPointChange={(newAnchorPoint: AnchorPointName) =>
+          setAnchorPoint(newAnchorPoint)
+        }
+      />
+    </APIProvider>
   );
 };
 
-
-
-
-/* fonction d'affichage des icônes handleChange...*/
-/*Affichage par défaut: true, Cache des icones lors du click  */
-const [showResultsBars, setShowResultsBars] = React.useState(true)
-const handleChangeBars  = () => setShowResultsBars(!showResultsBars)
-
-const [showResultsPark, setShowResultsPark] = React.useState(true)
-const handleChangePark  = () => setShowResultsPark(!showResultsPark)
-
-const [showResultsScenes, setShowResultsScenes] = React.useState(true)
-const handleChangeScenes  = () => setShowResultsScenes(!showResultsScenes)
-
-const [showResultsCamp, setShowResultsCamp] = React.useState(true)
-const handleChangeCamp  = () => setShowResultsCamp(!showResultsCamp)
-
-const [showResultsExit, setShowResultsExit] = React.useState(true)
-const handleChangeExit  = () => setShowResultsExit(!showResultsExit)
-
-const [showResultsToilet, setShowResultsToilet] = React.useState(true)
-const handleChangeToilet  = () => setShowResultsToilet(!showResultsToilet)
-
-const [showResultsShop, setShowResultsShop] = React.useState(true)
-const handleChangeShop  = () => setShowResultsShop(!showResultsShop)
-
-/*Un composant par type d'icone */
-/*Bars */
-const ResultsBar=() => (
-  <ValMarkers   
-  pois={bars}   
-  /> 
- )
-
-/*Parking */
-const ResultsPark=() => (
-  <ValMarkers   
-  pois={parkings}   
-  /> 
- )
-
- /*Scènes */
- const ResultsScenes=() => (
-  <MarkerWithInfoWindow   
-  pois={scenes}   
-  /> 
- )
-
- /*Sorties */
- const ResultsExit=() => (
-  <ValMarkers   
-  pois={exits}   
-  /> 
- )
-
- /*Toilettes */
- const ResultsToilet=() => (
-  <ValMarkers   
-  pois={toilets}   
-  /> 
- )
-
-/*Camping*/
-const ResultsCamp=() => (
-  <ValMarkers
-  pois={camping}
-  />
-)
-
-/*Boutique*/
-const ResultsShop=() => (
-  <ValMarkers
-  pois={shop}
-  />
-)
+export const AdvancedMarkerWithRef = (
+  props: AdvancedMarkerProps & {
+    onMarkerClick: (marker: google.maps.marker.AdvancedMarkerElement) => void;
+  }
+) => {
+  const {children, onMarkerClick, ...advancedMarkerProps} = props;
+  const [markerRef, marker] = useAdvancedMarkerRef();
 
   return (
-    <>    
-{/*Affichage conditionnel ds icones avec une checkbox une checkbox (Appel du composant des icones + fonction d'affichage/cache des icones handleChange...*/} 
-    <div className="legend">
-     <div className="ico">
-          <input type="checkbox" checked={showResultsBars} onChange={handleChangeBars} />
-          { showResultsBars ? <ResultsBar /> : null }
-          <img src="../assets/bars.png" width="25em" height= "25em" alt="Bar"/> 
-      </div>  
-      <div className="ico">
-          <input type="checkbox" checked={showResultsPark} onChange={handleChangePark} />
-          { showResultsPark ? <ResultsPark /> : null }
-          <img src="../assets/parking.png" width="20em" height= "20em" alt="Park"/> 
-      </div>
-      <div className="ico">
-          <input type="checkbox" checked={showResultsScenes} onChange={handleChangeScenes} />
-          { showResultsScenes ? <ResultsScenes /> : null }
-          <img src="../assets/scene.png" width="25em" height= "25em" alt="Scène"/>
-      </div>  
-      <div className="ico">
-          <input type="checkbox" checked={showResultsExit} onChange={handleChangeExit} />
-          { showResultsExit ? <ResultsExit /> : null }
-          <img src="../assets/entrer.png" width="25em" height= "25em" alt="Exit"/>
-      </div>  
-      <div className="ico">
-          <input type="checkbox" checked={showResultsCamp} onChange={handleChangeCamp} />
-          { showResultsCamp ? <ResultsCamp /> : null }
-          <img src="../assets/camping.png" width="25em" height= "25em" alt="Camping"/>
-      </div>  
-      <div className="ico">
-          <input type="checkbox" checked={showResultsToilet} onChange={handleChangeToilet} />
-          { showResultsToilet ? <ResultsToilet /> : null }
-          <img src="../assets/toilettes.png" width="25em" height= "25em" alt="Toilets"/>
-      </div>
-      <div className="ico">
-          <input type="checkbox" checked={showResultsShop} onChange={handleChangeShop} />
-          { showResultsShop ? <ResultsShop /> : null }
-          <img src="../assets/boutique.png" width="25em" height= "25em" alt="Boutique"/>
-      </div>   
-    </div> 
-    </>
+    <AdvancedMarker
+      onClick={() => {
+        if (marker) {
+          onMarkerClick(marker);
+        }
+      }}
+      ref={markerRef}
+      {...advancedMarkerProps}>
+      {children}
+    </AdvancedMarker>
   );
+ 
 };
 
-export default Markers;
 
 
 
-    
+
+
