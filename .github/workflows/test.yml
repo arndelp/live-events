@@ -1,0 +1,16 @@
+name: Test LiveEventsFront
+on: workflow_dispatch
+jobs:
+  test: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code
+        uses: actions/checkout@v4
+      - name: Install Node v22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        run: npm install
+      - name: Test
+        run: npm run test
