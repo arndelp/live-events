@@ -1,5 +1,8 @@
-name: Test LiveEventsFront
-on: workflow_dispatch
+name: Deploy LiveEventsFront
+permissions:
+  contents: write
+on:
+  workflow_dispatch:
 jobs:
   test: 
     runs-on: ubuntu-latest
@@ -12,5 +15,10 @@ jobs:
           node-version: 22
       - name: Install
         run: npm install
-      - name: Test
-        run: npm run test
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          branch: gh-pages
