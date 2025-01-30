@@ -9,7 +9,7 @@ interface Props {
 
 function ControlPanel(props: Props) {
   return (
-    <div className="control-panel">
+    <div >
       <h3>Advanced Marker interaction</h3>
       <p>
         Markers scale on hover and change their color when they are selected by

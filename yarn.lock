@@ -10309,11 +10309,6 @@ url-parse@^1.5.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-use-position@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/use-position/-/use-position-1.0.0.tgz"
-  integrity sha512-YEN3YwP3rBmtlJeU49C4qPTPPV+FZJ8O+L3VpIFwnaDcYzf1RVp2HWYWsuLytYHm5ga2a3lZjyk4ou5vonxNrQ==
-
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"

@@ -1,6 +1,5 @@
 import React, {useCallback, useState, useEffect} from 'react';
-
-
+import ControlPanel from './ControlPanel';
 import {
   AdvancedMarker,
   AdvancedMarkerAnchorPoint,
@@ -13,7 +12,7 @@ import {
   CollisionBehavior
 } from '@vis.gl/react-google-maps';
 import './style.css';
-import ControlPanel from './control-panel';
+
 
 export type AnchorPointName = keyof typeof AdvancedMarkerAnchorPoint;
 
