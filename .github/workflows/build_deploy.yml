@@ -25,9 +25,7 @@ jobs:
         with:
           node-version: 22
       - name: Install
-        run: npm install
-      - name: Build
-        run: npm run build
+        run: npm install      
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -39,12 +37,10 @@ jobs:
         with:
           node-version: 22
       - name: Install
-        run: npm install
-      - name: Build
-        run: npm run build
+        run: npm install      
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build 
-          branch: gh-pages
+          branch: secondary/Tailwind
         

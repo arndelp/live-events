@@ -43,7 +43,7 @@ function ControlPanel(props: Props) {
         The blue markers also have the{' '}
         <a
           href="https://developers.google.com/maps/documentation/javascript/reference/advanced-markers#AdvancedMarkerElement.collisionBehavior"
-          target="_blank">
+          target="_blank" rel="noreferrer">
           collision detection
         </a>{' '}
         feature turned on for demonstration purposes.
