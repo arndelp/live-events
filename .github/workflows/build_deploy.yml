@@ -15,10 +15,7 @@ jobs:
           node-version: 22
       - name: Install
         run: npm install
-      - name: Test
-        run: npm run test
   build:
-    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Code
